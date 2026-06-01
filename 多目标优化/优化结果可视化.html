@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>无人机站点布局多目标优化结果</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Microsoft YaHei',sans-serif;background:#0d1117;color:#e6edf3;}
+#app{display:flex;flex-direction:column;height:100vh;}
+#header{
+  background:linear-gradient(135deg,#161b22 0%,#21262d 100%);
+  padding:10px 20px;display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid #30363d;flex-shrink:0;
+}
+#header h1{font-size:17px;color:#58a6ff;}
+#header .sub{font-size:11px;color:#8b949e;margin-top:2px;}
+.badge{background:#21262d;border:1px solid #30363d;color:#58a6ff;
+       padding:3px 10px;border-radius:12px;font-size:11px;}
+#tabs{display:flex;border-bottom:1px solid #30363d;background:#161b22;flex-shrink:0;}
+.tab{padding:10px 20px;cursor:pointer;font-size:13px;color:#8b949e;border-bottom:2px solid transparent;}
+.tab.active{color:#58a6ff;border-bottom-color:#58a6ff;}
+#content{flex:1;overflow:hidden;display:flex;}
+
+/* ---- Tab 1: 帕累托 + 进化 ---- */
+#panel-pareto{display:flex;width:100%;height:100%;gap:0;}
+#chart-container{flex:1;padding:16px;display:flex;flex-direction:column;gap:12px;overflow:auto;}
+.chart-box{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:14px;}
+.chart-box h3{font-size:13px;color:#58a6ff;margin-bottom:10px;}
+canvas{display:block;}
+#pareto-info{
+  width:260px;background:#161b22;border-left:1px solid #30363d;
+  padding:14px;overflow-y:auto;flex-shrink:0;
+}
+#pareto-info h3{font-size:13px;color:#58a6ff;margin-bottom:10px;}
+.info-card{background:#0d1117;border:1px solid #30363d;border-radius:6px;padding:10px;margin-bottom:8px;}
+.info-card .val{font-size:18px;font-weight:bold;color:#7ee787;}
+.info-card .lbl{font-size:10px;color:#8b949e;margin-top:2px;}
+#hover-info{
+  background:#0d1117;border:1px solid #30363d;border-radius:6px;
+  padding:10px;font-size:11px;color:#e6edf3;min-height:80px;
+}
+
+/* ---- Tab 2: 地图 ---- */
+#panel-map{display:flex;width:100%;height:100%;}
+#map-sidebar{
+  width:280px;background:#161b22;border-right:1px solid #30363d;
+  padding:14px;overflow-y:auto;flex-shrink:0;
+}
+#map{flex:1;}
+.scheme-btn{
+  display:block;width:100%;text-align:left;padding:10px 12px;margin-bottom:6px;
+  border-radius:6px;border:2px solid transparent;cursor:pointer;
+  background:#0d1117;color:#e6edf3;font-size:12px;transition:all .2s;
+}
+.scheme-btn.active{border-color:#58a6ff;background:#1c2128;}
+.scheme-btn:hover{background:#1c2128;}
+.scheme-metric{color:#7ee787;font-weight:bold;}
+.map-legend-item{display:flex;align-items:center;gap:8px;font-size:11px;margin:4px 0;}
+.map-legend-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;}
+
+.hidden{display:none !important;}
+</style>
+</head>
+<body>
+<div id="app">
+
+<div id="header">
+  <div>
+    <h1>🚁 无人机配送站点多目标布局优化 — NSGA-II 结果</h1>
+    <div class="sub">华东师范大学公共管理学院 · 三目标优化：最低成本 · 最高覆盖 · 最短应急响应</div>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;">
+    <span class="badge">帕累托解: 80</span>
+    <span class="badge">候选方案: 3套</span>
+    <span class="badge">DJI FlyCart 30</span>
+  </div>
+</div>
+
+<div id="tabs">
+  <div class="tab active" onclick="switchTab('pareto')">📊 帕累托分析</div>
+  <div class="tab" onclick="switchTab('evo')">📈 进化曲线</div>
+  <div class="tab" onclick="switchTab('map')">🗺 站点布局地图</div>
+</div>
+
+<div id="content">
+
+<!-- Tab 1: 帕累托 -->
+<div id="panel-pareto">
+  <div id="chart-container">
+    <div class="chart-box" style="flex:1;">
+      <h3>帕累托前沿 — 总成本 vs 服务覆盖率（圆圈大小=应急响应时间，越小越好）</h3>
+      <div style="font-size:11px;color:#8b949e;margin-bottom:6px;line-height:1.6;">
+        每个点代表一套站点配置方案。<b style="color:#7ee787;">右上角小圆</b>= 覆盖率高且成本低（最优区域）；
+        <b style="color:#f2cc60;">左下角大圆</b>= 成本低但覆盖不足。
+        三角形标记为推荐的代表方案，<b style="color:#a78bfa;">菱形</b>为综合折中方案。
+      </div>
+      <canvas id="pareto-scatter"></canvas>
+    </div>
+  </div>
+  <div id="pareto-info">
+    <h3>🎯 代表方案对比</h3>
+    SCHEME_CARDS_HTML
+    <!-- 折中方案卡片 -->
+    <div class="info-card" style="border-left:3px solid #a78bfa;">
+      <div style="font-weight:bold;margin-bottom:6px;color:#a78bfa;">◆ 综合折中方案（推荐）</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;">
+        <div><div class="val">3250</div><div class="lbl">万元总成本</div></div>
+        <div><div class="val">3</div><div class="lbl">站点总数</div></div>
+        <div><div class="val">88.1%</div><div class="lbl">服务覆盖率</div></div>
+        <div><div class="val">21.4分</div><div class="lbl">应急响应</div></div>
+      </div>
+      <div style="font-size:10px;color:#8b949e;margin-top:6px;">帕累托"膝点"：成本与覆盖率之间的最佳权衡，性价比最高</div>
+    </div>
+    <div style="margin-top:10px;padding:8px;background:#0d1117;border-radius:6px;font-size:10px;color:#8b949e;line-height:1.7;">
+      ⚠️ 帕累托前沿上不存在同时最优的方案，决策者需根据预算约束选择。<br>
+      建议：初期采用<b style="color:#a78bfa;">折中方案</b>（3站，3250万），待运营验证后逐步扩展至<b style="color:#45b7d1;">高覆盖方案</b>。
+    </div>
+    <h3 style="margin-top:14px;">🖱 悬停查看详情</h3>
+    <div id="hover-info">将鼠标悬停在散点图上的点查看方案详情...</div>
+  </div>
+</div>
+
+<!-- Tab 2: 进化曲线 -->
+<div id="panel-evo" class="hidden" style="width:100%;padding:20px;overflow:auto;">
+  <div style="background:#161b22;border:1px solid #30363d;border-radius:6px;padding:10px 16px;margin-bottom:12px;font-size:11px;color:#8b949e;line-height:1.7;">
+    <b style="color:#58a6ff;">如何读懂进化曲线：</b>
+    曲线整体下降（成本/时间）或上升（覆盖率）表示算法在持续优化。
+    <b style="color:#f2cc60;">⚡虚线</b>标记ε探索率到达最小值（第150代），此后算法主要利用已学知识精化解；
+    帕累托前沿规模持续增长说明多样性保持良好。
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 60px);">
+    <div class="chart-box">
+      <h3>帕累托前沿规模（每代非支配解数量）↑ 越多表示解的多样性越好</h3>
+      <canvas id="evo-pareto-size"></canvas>
+    </div>
+    <div class="chart-box">
+      <h3>最低总成本演化（万元）↓ 算法找到更经济方案</h3>
+      <canvas id="evo-cost"></canvas>
+    </div>
+    <div class="chart-box">
+      <h3>最高覆盖率演化（%）↑ 算法找到覆盖更广方案</h3>
+      <canvas id="evo-cov"></canvas>
+    </div>
+    <div class="chart-box">
+      <h3>最短应急响应时间演化（分钟）↓ 越低越好</h3>
+      <canvas id="evo-emg"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- Tab 3: 地图 -->
+<div id="panel-map" class="hidden">
+  <div id="map-sidebar">
+    <h3 style="font-size:13px;color:#58a6ff;margin-bottom:10px;">📋 选择显示方案</h3>
+    SCHEME_BTNS_HTML
+
+    <div style="margin-top:16px;">
+      <h3 style="font-size:13px;color:#58a6ff;margin-bottom:8px;">🗝 站点类型</h3>
+      <div class="map-legend-item"><div class="map-legend-dot" style="background:#ff6b6b;"></div> 微型站 (3km, 2架)</div>
+      <div class="map-legend-item"><div class="map-legend-dot" style="background:#ffd93d;"></div> 综合站 (10km, 5架)</div>
+      <div class="map-legend-item"><div class="map-legend-dot" style="background:#6c5ce7;"></div> 枢纽站 (20km, 10架)</div>
+    </div>
+    <div style="margin-top:12px;padding:8px;background:#0d1117;border-radius:6px;font-size:10px;color:#8b949e;">
+      圆圈 = 服务覆盖范围<br>虚线圆 = 应急响应范围<br>点击站点查看详情
+    </div>
+    <div id="station-info" style="margin-top:12px;padding:10px;background:#0d1117;border:1px solid #30363d;border-radius:6px;font-size:11px;min-height:60px;display:none;"></div>
+  </div>
+  <div id="map"></div>
+</div>
+
+</div><!-- /content -->
+</div><!-- /app -->
+
+<script>
+// ============================================================
+// 数据
+// ============================================================
+const PARETO = [{"cost": 230.0, "cov": 0.36, "emg": 131.87, "micro": 1, "comp": 0, "hub": 0, "drones": 2}, {"cost": 230.0, "cov": 0.36, "emg": 131.87, "micro": 1, "comp": 0, "hub": 0, "drones": 2}, {"cost": 460.0, "cov": 12.49, "emg": 65.98, "micro": 2, "comp": 0, "hub": 0, "drones": 4}, {"cost": 460.0, "cov": 8.47, "emg": 55.06, "micro": 2, "comp": 0, "hub": 0, "drones": 4}, {"cost": 690.0, "cov": 11.55, "emg": 64.71, "micro": 3, "comp": 0, "hub": 0, "drones": 6}, {"cost": 690.0, "cov": 8.49, "emg": 52.81, "micro": 3, "comp": 0, "hub": 0, "drones": 6}, {"cost": 690.0, "cov": 9.63, "emg": 54.73, "micro": 3, "comp": 0, "hub": 0, "drones": 6}, {"cost": 880.0, "cov": 43.58, "emg": 47.24, "micro": 1, "comp": 1, "hub": 0, "drones": 7}, {"cost": 920.0, "cov": 12.45, "emg": 44.97, "micro": 4, "comp": 0, "hub": 0, "drones": 8}, {"cost": 1110.0, "cov": 47.23, "emg": 38.71, "micro": 2, "comp": 1, "hub": 0, "drones": 9}, {"cost": 1110.0, "cov": 47.23, "emg": 38.71, "micro": 2, "comp": 1, "hub": 0, "drones": 9}, {"cost": 1300.0, "cov": 76.51, "emg": 30.29, "micro": 0, "comp": 0, "hub": 1, "drones": 10}, {"cost": 1300.0, "cov": 76.51, "emg": 30.29, "micro": 0, "comp": 0, "hub": 1, "drones": 10}, {"cost": 1530.0, "cov": 72.45, "emg": 29.83, "micro": 1, "comp": 0, "hub": 1, "drones": 12}, {"cost": 1800.0, "cov": 39.04, "emg": 27.09, "micro": 5, "comp": 1, "hub": 0, "drones": 15}, {"cost": 1950.0, "cov": 73.82, "emg": 29.14, "micro": 0, "comp": 1, "hub": 1, "drones": 15}, {"cost": 1950.0, "cov": 68.51, "emg": 26.28, "micro": 0, "comp": 3, "hub": 0, "drones": 15}, {"cost": 1990.0, "cov": 59.92, "emg": 24.83, "micro": 3, "comp": 2, "hub": 0, "drones": 16}, {"cost": 2180.0, "cov": 76.61, "emg": 25.4, "micro": 1, "comp": 1, "hub": 1, "drones": 17}, {"cost": 2220.0, "cov": 53.12, "emg": 24.26, "micro": 4, "comp": 2, "hub": 0, "drones": 18}, {"cost": 2220.0, "cov": 64.58, "emg": 24.58, "micro": 4, "comp": 2, "hub": 0, "drones": 18}, {"cost": 2410.0, "cov": 79.41, "emg": 20.2, "micro": 2, "comp": 1, "hub": 1, "drones": 19}, {"cost": 2600.0, "cov": 79.47, "emg": 22.12, "micro": 0, "comp": 2, "hub": 1, "drones": 20}, {"cost": 2600.0, "cov": 66.84, "emg": 19.71, "micro": 0, "comp": 4, "hub": 0, "drones": 20}, {"cost": 2640.0, "cov": 71.79, "emg": 19.65, "micro": 3, "comp": 3, "hub": 0, "drones": 21}, {"cost": 2830.0, "cov": 78.2, "emg": 19.44, "micro": 1, "comp": 2, "hub": 1, "drones": 22}, {"cost": 3060.0, "cov": 69.89, "emg": 17.46, "micro": 2, "comp": 4, "hub": 0, "drones": 24}, {"cost": 3060.0, "cov": 76.97, "emg": 17.91, "micro": 2, "comp": 2, "hub": 1, "drones": 24}, {"cost": 3250.0, "cov": 81.28, "emg": 19.31, "micro": 0, "comp": 3, "hub": 1, "drones": 25}, {"cost": 3250.0, "cov": 88.13, "emg": 21.39, "micro": 0, "comp": 1, "hub": 2, "drones": 25}, {"cost": 3480.0, "cov": 88.53, "emg": 20.52, "micro": 1, "comp": 1, "hub": 2, "drones": 27}, {"cost": 3480.0, "cov": 78.92, "emg": 17.69, "micro": 1, "comp": 3, "hub": 1, "drones": 27}, {"cost": 3710.0, "cov": 77.73, "emg": 17.02, "micro": 2, "comp": 3, "hub": 1, "drones": 29}, {"cost": 3900.0, "cov": 90.76, "emg": 18.82, "micro": 0, "comp": 0, "hub": 3, "drones": 30}, {"cost": 3940.0, "cov": 85.33, "emg": 14.48, "micro": 3, "comp": 5, "hub": 0, "drones": 31}, {"cost": 4360.0, "cov": 87.15, "emg": 16.62, "micro": 2, "comp": 2, "hub": 2, "drones": 34}, {"cost": 4590.0, "cov": 86.0, "emg": 15.47, "micro": 3, "comp": 2, "hub": 2, "drones": 36}, {"cost": 4780.0, "cov": 86.3, "emg": 14.2, "micro": 1, "comp": 7, "hub": 0, "drones": 37}, {"cost": 4820.0, "cov": 83.47, "emg": 13.0, "micro": 4, "comp": 4, "hub": 1, "drones": 38}, {"cost": 5240.0, "cov": 87.83, "emg": 10.71, "micro": 3, "comp": 5, "hub": 1, "drones": 41}, {"cost": 5430.0, "cov": 91.28, "emg": 15.63, "micro": 1, "comp": 0, "hub": 4, "drones": 42}, {"cost": 5660.0, "cov": 89.74, "emg": 11.93, "micro": 2, "comp": 4, "hub": 2, "drones": 44}, {"cost": 5890.0, "cov": 90.74, "emg": 11.57, "micro": 3, "comp": 4, "hub": 2, "drones": 46}, {"cost": 6080.0, "cov": 91.51, "emg": 13.86, "micro": 1, "comp": 7, "hub": 1, "drones": 47}, {"cost": 6310.0, "cov": 91.79, "emg": 10.15, "micro": 2, "comp": 7, "hub": 1, "drones": 49}, {"cost": 6500.0, "cov": 92.65, "emg": 15.2, "micro": 0, "comp": 2, "hub": 4, "drones": 50}, {"cost": 6540.0, "cov": 92.21, "emg": 13.0, "micro": 3, "comp": 5, "hub": 2, "drones": 51}, {"cost": 6770.0, "cov": 89.73, "emg": 9.75, "micro": 4, "comp": 7, "hub": 1, "drones": 53}, {"cost": 7190.0, "cov": 92.08, "emg": 10.52, "micro": 3, "comp": 6, "hub": 2, "drones": 56}, {"cost": 7800.0, "cov": 89.54, "emg": 9.17, "micro": 0, "comp": 6, "hub": 3, "drones": 60}, {"cost": 8030.0, "cov": 92.99, "emg": 9.39, "micro": 1, "comp": 10, "hub": 1, "drones": 62}, {"cost": 8450.0, "cov": 89.83, "emg": 9.11, "micro": 0, "comp": 7, "hub": 3, "drones": 65}, {"cost": 8490.0, "cov": 93.91, "emg": 11.83, "micro": 3, "comp": 4, "hub": 4, "drones": 66}, {"cost": 8680.0, "cov": 93.56, "emg": 9.54, "micro": 1, "comp": 9, "hub": 2, "drones": 67}, {"cost": 8910.0, "cov": 93.93, "emg": 8.66, "micro": 2, "comp": 11, "hub": 1, "drones": 69}, {"cost": 9330.0, "cov": 95.01, "emg": 10.5, "micro": 1, "comp": 6, "hub": 4, "drones": 72}, {"cost": 9560.0, "cov": 94.04, "emg": 10.13, "micro": 2, "comp": 8, "hub": 3, "drones": 74}, {"cost": 9750.0, "cov": 95.35, "emg": 9.95, "micro": 0, "comp": 9, "hub": 3, "drones": 75}, {"cost": 9980.0, "cov": 92.41, "emg": 8.13, "micro": 1, "comp": 7, "hub": 4, "drones": 77}, {"cost": 10630.0, "cov": 95.11, "emg": 9.9, "micro": 1, "comp": 8, "hub": 4, "drones": 82}, {"cost": 10630.0, "cov": 95.11, "emg": 9.9, "micro": 1, "comp": 8, "hub": 4, "drones": 82}, {"cost": 11050.0, "cov": 95.02, "emg": 9.81, "micro": 0, "comp": 11, "hub": 3, "drones": 85}, {"cost": 11280.0, "cov": 95.68, "emg": 8.15, "micro": 1, "comp": 11, "hub": 3, "drones": 87}, {"cost": 11550.0, "cov": 89.35, "emg": 7.66, "micro": 5, "comp": 12, "hub": 2, "drones": 90}, {"cost": 11780.0, "cov": 83.24, "emg": 7.54, "micro": 6, "comp": 12, "hub": 2, "drones": 92}, {"cost": 12350.0, "cov": 94.91, "emg": 7.98, "micro": 0, "comp": 9, "hub": 5, "drones": 95}, {"cost": 12390.0, "cov": 95.38, "emg": 7.69, "micro": 3, "comp": 12, "hub": 3, "drones": 96}, {"cost": 12810.0, "cov": 96.72, "emg": 8.69, "micro": 2, "comp": 9, "hub": 5, "drones": 99}, {"cost": 13000.0, "cov": 97.08, "emg": 7.82, "micro": 0, "comp": 12, "hub": 4, "drones": 100}, {"cost": 13230.0, "cov": 95.47, "emg": 7.33, "micro": 1, "comp": 10, "hub": 5, "drones": 102}, {"cost": 13880.0, "cov": 96.54, "emg": 7.78, "micro": 1, "comp": 11, "hub": 5, "drones": 107}, {"cost": 14110.0, "cov": 97.17, "emg": 7.99, "micro": 2, "comp": 11, "hub": 5, "drones": 109}, {"cost": 14300.0, "cov": 97.98, "emg": 7.88, "micro": 0, "comp": 12, "hub": 5, "drones": 110}, {"cost": 14530.0, "cov": 97.09, "emg": 7.72, "micro": 1, "comp": 12, "hub": 5, "drones": 112}, {"cost": 14990.0, "cov": 93.68, "emg": 7.04, "micro": 3, "comp": 12, "hub": 5, "drones": 116}, {"cost": 14990.0, "cov": 93.68, "emg": 7.04, "micro": 3, "comp": 12, "hub": 5, "drones": 116}, {"cost": 15450.0, "cov": 93.38, "emg": 6.99, "micro": 5, "comp": 12, "hub": 5, "drones": 120}, {"cost": 15680.0, "cov": 82.4, "emg": 6.55, "micro": 6, "comp": 12, "hub": 5, "drones": 122}, {"cost": 15910.0, "cov": 89.85, "emg": 6.8, "micro": 7, "comp": 12, "hub": 5, "drones": 124}, {"cost": 16140.0, "cov": 89.63, "emg": 6.76, "micro": 8, "comp": 12, "hub": 5, "drones": 126}];
+const STATIONS = {"\u4f4e\u6210\u672c\u65b9\u6848": [{"lon": 121.51835443037974, "lat": 31.03354430379747, "type": 1, "name": "\u5fae\u578b\u7ad9", "ndrones": 2, "svc_km": 3.0, "cost": 230.0, "color": "#ff6b6b"}], "\u9ad8\u8986\u76d6\u65b9\u6848": [{"lon": 121.44240506329113, "lat": 31.324050632911394, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.4879746835443, "lat": 31.0873417721519, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.35126582278481, "lat": 31.19493670886076, "type": 3, "name": "\u67a2\u7ebd\u7ad9", "ndrones": 10, "svc_km": 20.0, "cost": 1300.0, "color": "#6c5ce7"}, {"lon": 121.15379746835443, "lat": 31.281012658227848, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.35126582278481, "lat": 31.324050632911394, "type": 3, "name": "\u67a2\u7ebd\u7ad9", "ndrones": 10, "svc_km": 20.0, "cost": 1300.0, "color": "#6c5ce7"}, {"lon": 121.1386075949367, "lat": 30.990506329113924, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.7006329113924, "lat": 30.958227848101266, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.38164556962025, "lat": 31.02278481012658, "type": 3, "name": "\u67a2\u7ebd\u7ad9", "ndrones": 10, "svc_km": 20.0, "cost": 1300.0, "color": "#6c5ce7"}, {"lon": 121.03227848101265, "lat": 30.968987341772152, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.94367088607595, "lat": 30.91518987341772, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.29050632911392, "lat": 30.850632911392406, "type": 3, "name": "\u67a2\u7ebd\u7ad9", "ndrones": 10, "svc_km": 20.0, "cost": 1300.0, "color": "#6c5ce7"}, {"lon": 121.4737, "lat": 31.2304, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.5047, "lat": 31.2783, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.6105, "lat": 31.1994, "type": 3, "name": "\u67a2\u7ebd\u7ad9", "ndrones": 10, "svc_km": 20.0, "cost": 1300.0, "color": "#6c5ce7"}, {"lon": 121.1088, "lat": 31.0768, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.458, "lat": 30.8419, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.9716, "lat": 31.5156, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}], "\u5feb\u901f\u5e94\u6025\u65b9\u6848": [{"lon": 121.44240506329113, "lat": 31.324050632911394, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.4120253164557, "lat": 31.184177215189873, "type": 1, "name": "\u5fae\u578b\u7ad9", "ndrones": 2, "svc_km": 3.0, "cost": 230.0, "color": "#ff6b6b"}, {"lon": 121.4879746835443, "lat": 31.0873417721519, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.35126582278481, "lat": 31.19493670886076, "type": 3, "name": "\u67a2\u7ebd\u7ad9", "ndrones": 10, "svc_km": 20.0, "cost": 1300.0, "color": "#6c5ce7"}, {"lon": 121.04746835443038, "lat": 31.012025316455695, "type": 1, "name": "\u5fae\u578b\u7ad9", "ndrones": 2, "svc_km": 3.0, "cost": 230.0, "color": "#ff6b6b"}, {"lon": 121.15379746835443, "lat": 31.281012658227848, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.4120253164557, "lat": 31.10886075949367, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.60949367088607, "lat": 31.281012658227848, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.62468354430379, "lat": 31.184177215189873, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.35126582278481, "lat": 31.324050632911394, "type": 1, "name": "\u5fae\u578b\u7ad9", "ndrones": 2, "svc_km": 3.0, "cost": 230.0, "color": "#ff6b6b"}, {"lon": 121.03227848101265, "lat": 31.03354430379747, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.7006329113924, "lat": 30.958227848101266, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.4879746835443, "lat": 30.882911392405063, "type": 1, "name": "\u5fae\u578b\u7ad9", "ndrones": 2, "svc_km": 3.0, "cost": 230.0, "color": "#ff6b6b"}, {"lon": 121.50316455696202, "lat": 30.872151898734177, "type": 1, "name": "\u5fae\u578b\u7ad9", "ndrones": 2, "svc_km": 3.0, "cost": 230.0, "color": "#ff6b6b"}, {"lon": 121.53354430379747, "lat": 31.41012658227848, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.09303797468354, "lat": 31.1626582278481, "type": 3, "name": "\u67a2\u7ebd\u7ad9", "ndrones": 10, "svc_km": 20.0, "cost": 1300.0, "color": "#6c5ce7"}, {"lon": 121.94367088607595, "lat": 30.91518987341772, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.4737, "lat": 31.2304, "type": 1, "name": "\u5fae\u578b\u7ad9", "ndrones": 2, "svc_km": 3.0, "cost": 230.0, "color": "#ff6b6b"}, {"lon": 121.4279, "lat": 31.2208, "type": 3, "name": "\u67a2\u7ebd\u7ad9", "ndrones": 10, "svc_km": 20.0, "cost": 1300.0, "color": "#6c5ce7"}, {"lon": 121.4484, "lat": 31.2489, "type": 3, "name": "\u67a2\u7ebd\u7ad9", "ndrones": 10, "svc_km": 20.0, "cost": 1300.0, "color": "#6c5ce7"}, {"lon": 121.3767, "lat": 31.1139, "type": 3, "name": "\u67a2\u7ebd\u7ad9", "ndrones": 10, "svc_km": 20.0, "cost": 1300.0, "color": "#6c5ce7"}, {"lon": 121.6105, "lat": 31.1994, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}, {"lon": 121.2264, "lat": 30.9975, "type": 2, "name": "\u7efc\u5408\u7ad9", "ndrones": 5, "svc_km": 10.0, "cost": 650.0, "color": "#ffd93d"}]};
+const EVO_GENS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150];
+const EVO_COV  = [0.1008010680907877, 0.1008010680907877, 0.1008010680907877, 0.1008010680907877, 0.1008010680907877, 0.1008010680907877, 0.1008010680907877, 0.1008010680907877, 0.1008010680907877, 0.1008010680907877, 0.1008010680907877, 0.1008010680907877, 0.1008010680907877, 0.1008010680907877, 0.1008010680907877, 0.1008010680907877, 0.1008010680907877, 0.1008010680907877, 0.1008010680907877, 0.033956386292834886, 0.033956386292834886, 0.033956386292834886, 0.033956386292834886, 0.033956386292834886, 0.033956386292834886, 0.033956386292834886, 0.033956386292834886, 0.16573208722741425, 0.16573208722741425, 0.16573208722741425, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.06079216733422339, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.08393413440142411, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864, 0.0035603026257231864];
+const EVO_COST = [1570.0, 1570.0, 1570.0, 1570.0, 1570.0, 1570.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 1110.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 460.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0, 230.0];
+const EVO_EMG  = [10.176511031440018, 9.008967963648283, 9.008967963648283, 9.008967963648283, 8.995287863689416, 8.995287863689416, 8.343498815884153, 8.343498815884153, 7.832232925130837, 7.832232925130837, 7.430572514516199, 7.430572514516199, 7.430572514516199, 7.430572514516199, 7.430572514516199, 7.430572514516199, 7.419682446598976, 7.195807109816887, 7.195807109816887, 7.195807109816887, 7.195807109816887, 7.195807109816887, 7.195807109816887, 7.195807109816887, 7.195807109816887, 7.195807109816887, 7.195807109816887, 7.195807109816887, 7.195807109816887, 7.195807109816887, 7.195807109816887, 7.195807109816887, 7.195807109816887, 7.195807109816887, 7.195807109816887, 7.195807109816887, 7.195807109816887, 6.90738244008706, 6.90738244008706, 6.90738244008706, 6.90738244008706, 6.90738244008706, 6.90738244008706, 6.90738244008706, 6.90738244008706, 6.884187765787553, 6.884187765787553, 6.884187765787553, 6.884187765787553, 6.884187765787553, 6.884187765787553, 6.884187765787553, 6.884187765787553, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.830041883007909, 6.797181951329161, 6.797181951329161, 6.797181951329161, 6.797181951329161, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.757758496715273, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951, 6.545754639338951];
+const SCHEME_COLORS = {"\u4f4e\u6210\u672c\u65b9\u6848": "#4ecdc4", "\u9ad8\u8986\u76d6\u65b9\u6848": "#45b7d1", "\u5feb\u901f\u5e94\u6025\u65b9\u6848": "#f7dc6f"};
+const TYPE_COLORS = {"1": "#ff6b6b", "2": "#ffd93d", "3": "#6c5ce7"};
+
+// ============================================================
+// Tab 切换
+// ============================================================
+let mapInitialized = false;
+let currentScheme = '低成本方案';
+
+function switchTab(name) {
+  document.querySelectorAll('.tab').forEach((t,i) => {
+    t.classList.toggle('active', ['pareto','evo','map'][i] === name);
+  });
+  document.getElementById('panel-pareto').classList.toggle('hidden', name !== 'pareto');
+  document.getElementById('panel-evo').classList.toggle('hidden', name !== 'evo');
+  document.getElementById('panel-map').classList.toggle('hidden', name !== 'map');
+
+  if (name === 'evo' && !evoDrawn) setTimeout(drawEvoCharts, 80);
+  if (name === 'map' && !mapInitialized) setTimeout(initMap, 80);
+}
+
+// ============================================================
+// 帕累托散点图（纯 Canvas）
+// ============================================================
+function drawParetoScatter() {
+  const canvas = document.getElementById('pareto-scatter');
+  const W = Math.max(canvas.parentElement.clientWidth - 28, 300);
+  const H = Math.max(canvas.parentElement.clientHeight - 80, 200);
+  canvas.width = W; canvas.height = H;
+  canvas.style.width  = W + 'px';
+  canvas.style.height = H + 'px';
+  const ctx = canvas.getContext('2d');
+
+  const PAD = {top:20, right:20, bottom:50, left:70};
+  const pw = W - PAD.left - PAD.right;
+  const ph = H - PAD.top - PAD.bottom;
+
+  const costs = PARETO.map(p => p.cost);
+  const covs  = PARETO.map(p => p.cov);
+  const emgs  = PARETO.map(p => p.emg);
+  const cMin = Math.min(...costs), cMax = Math.max(...costs);
+  const vMin = Math.min(...covs),  vMax = Math.max(...covs);
+  const eMin = Math.min(...emgs),  eMax = Math.max(...emgs);
+
+  const toX = c => PAD.left + (c - cMin) / (cMax - cMin + 1) * pw;
+  const toY = v => PAD.top + ph - (v - vMin) / (vMax - vMin + 1) * ph;
+  const toR = e => 4 + (e - eMin) / (eMax - eMin + 1) * 12;
+
+  // 背景
+  ctx.fillStyle = '#0d1117';
+  ctx.fillRect(0, 0, W, H);
+
+  // 网格
+  ctx.strokeStyle = '#21262d'; ctx.lineWidth = 1;
+  for (let i=0; i<=5; i++) {
+    const y = PAD.top + i * ph/5;
+    ctx.beginPath(); ctx.moveTo(PAD.left, y); ctx.lineTo(W-PAD.right, y); ctx.stroke();
+  }
+  for (let i=0; i<=5; i++) {
+    const x = PAD.left + i * pw/5;
+    ctx.beginPath(); ctx.moveTo(x, PAD.top); ctx.lineTo(x, PAD.top+ph); ctx.stroke();
+  }
+
+  // 轴标签
+  ctx.fillStyle='#8b949e'; ctx.font='11px Microsoft YaHei';
+  ctx.textAlign='center';
+  ctx.fillText('总成本（万元）', PAD.left + pw/2, H-8);
+  ctx.save(); ctx.translate(14, PAD.top+ph/2); ctx.rotate(-Math.PI/2);
+  ctx.fillText('服务覆盖率（%）', 0, 0); ctx.restore();
+
+  // 坐标轴刻度
+  ctx.font='10px monospace'; ctx.fillStyle='#6e7681';
+  for (let i=0; i<=5; i++) {
+    const v = vMin + i*(vMax-vMin)/5;
+    ctx.textAlign='right';
+    ctx.fillText(v.toFixed(0)+'%', PAD.left-5, toY(v)+3);
+    const c = cMin + i*(cMax-cMin)/5;
+    ctx.textAlign='center';
+    ctx.fillText((c/10000).toFixed(1)+'w', toX(c), PAD.top+ph+14);
+  }
+
+  // "最优方向"箭头提示
+  ctx.fillStyle='rgba(126,231,135,0.12)';
+  ctx.fillRect(toX(cMax*0.55), PAD.top, pw*0.45, ph*0.45);
+  ctx.fillStyle='#7ee787'; ctx.font='10px Microsoft YaHei'; ctx.textAlign='left';
+  ctx.fillText('← 高覆盖 · 低成本 · 小圆（优选区）', toX(cMax*0.56), PAD.top+14);
+
+  // 点
+  PARETO.forEach((p, idx) => {
+    const x = toX(p.cost), y = toY(p.cov), r = toR(p.emg);
+    const t = (p.cov - vMin) / (vMax - vMin + 1);
+    const R = Math.round(255*(1-t)), G = Math.round(150+105*t), B = Math.round(255*t*0.5+50);
+    ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(${R},${G},${B},0.75)`;
+    ctx.fill();
+    ctx.strokeStyle='rgba(255,255,255,0.2)'; ctx.lineWidth=0.5;
+    ctx.stroke();
+  });
+
+  // 三个代表方案标注（▲ 三角形 + 引线 + 标签）
+  function drawCallout(cx, cy, label, sub, color, side='right') {
+    // 引线
+    const lx = side==='right' ? cx+18 : cx-18;
+    const ly = cy - 20;
+    ctx.strokeStyle=color; ctx.lineWidth=1.5; ctx.setLineDash([4,3]);
+    ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(lx, ly); ctx.stroke();
+    ctx.setLineDash([]);
+    // 三角标记
+    ctx.fillStyle=color;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy-8); ctx.lineTo(cx-6, cy+4); ctx.lineTo(cx+6, cy+4);
+    ctx.closePath(); ctx.fill();
+    // 标签背景
+    ctx.font='bold 11px Microsoft YaHei';
+    const tw = ctx.measureText(label).width;
+    const bx = side==='right' ? lx : lx-tw-8;
+    ctx.fillStyle='rgba(13,17,23,0.88)';
+    ctx.fillRect(bx-2, ly-16, tw+10, 34);
+    ctx.strokeStyle=color; ctx.lineWidth=1; ctx.strokeRect(bx-2, ly-16, tw+10, 34);
+    ctx.fillStyle=color; ctx.textAlign='left';
+    ctx.fillText(label, bx+3, ly-3);
+    ctx.fillStyle='#8b949e'; ctx.font='9px Microsoft YaHei';
+    ctx.fillText(sub, bx+3, ly+12);
+  }
+
+  // 低成本方案
+  const lc = PARETO.find(p => p.cost <= 300);
+  if(lc) drawCallout(toX(lc.cost), toY(lc.cov), '低成本方案', '230万·1站·0.4%覆盖', '#4ecdc4', 'right');
+
+  // 高覆盖方案
+  const hc = PARETO.find(p => p.cov >= 97);
+  if(hc) drawCallout(toX(hc.cost), toY(hc.cov), '高覆盖方案', '14300万·17站·98%', '#45b7d1', 'left');
+
+  // 快速应急方案
+  const fe = PARETO.reduce((a,b)=>a.emg<b.emg?a:b);
+  if(fe) drawCallout(toX(fe.cost), toY(fe.cov), '应急方案', '15680万·23站·6.5min', '#f7dc6f', 'left');
+
+  // 折中方案（膝点）
+  const knee = PARETO.find(p => p.cost >= 3000 && p.cost <= 3500 && p.cov >= 85);
+  if(knee) {
+    const kx=toX(knee.cost), ky=toY(knee.cov);
+    ctx.beginPath();
+    ctx.moveTo(kx,   ky-9); ctx.lineTo(kx+9, ky+6);
+    ctx.lineTo(kx-9, ky+6); ctx.closePath();
+    ctx.fillStyle='#a78bfa'; ctx.fill();
+    ctx.fillStyle='#a78bfa'; ctx.font='bold 10px Microsoft YaHei'; ctx.textAlign='center';
+    ctx.fillText('◆折中', kx, ky-14);
+    ctx.fillStyle='#8b949e'; ctx.font='9px monospace';
+    ctx.fillText('3250万·88%·21min', kx, ky-3);
+  }
+
+  // 鼠标悬停
+  canvas._pts = PARETO.map(p => ({ x: toX(p.cost), y: toY(p.cov), r: toR(p.emg), data: p }));
+  canvas.onmousemove = function(e) {
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    let found = null;
+    for (const pt of canvas._pts) {
+      if (Math.hypot(mx-pt.x, my-pt.y) < pt.r+4) { found=pt; break; }
+    }
+    if (found) {
+      const d = found.data;
+      document.getElementById('hover-info').innerHTML =
+        `<b>方案详情</b><br>
+         总成本: <b style="color:#7ee787">${d.cost.toFixed(0)} 万元</b><br>
+         覆盖率: <b style="color:#7ee787">${d.cov.toFixed(1)}%</b><br>
+         应急响应: <b style="color:#7ee787">${d.emg.toFixed(1)} 分钟</b><br>
+         站点: 微×${d.micro} + 综×${d.comp} + 枢×${d.hub} = ${d.micro+d.comp+d.hub}站<br>
+         无人机: ${d.drones} 架`;
+    }
+  };
+}
+
+// ============================================================
+// 进化曲线（Canvas折线）
+// ============================================================
+let evoDrawn = false;
+function drawLine(canvasId, data, color, label, yUnit='') {
+  const canvas = document.getElementById(canvasId);
+  const W = Math.max(canvas.parentElement.clientWidth - 28, 200);
+  const H = Math.max(canvas.parentElement.clientHeight - 50, 120);
+  canvas.width = W; canvas.height = H;
+  canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle='#0d1117'; ctx.fillRect(0,0,W,H);
+
+  const PAD = {top:15, right:20, bottom:35, left:60};
+  const pw = W-PAD.left-PAD.right, ph = H-PAD.top-PAD.bottom;
+  const xs = EVO_GENS.slice(0, data.length);
+  const vmin = Math.min(...data), vmax = Math.max(...data);
+  const toX = i => PAD.left + i/xs.length*pw;
+  const toY = v => PAD.top + ph - (v-vmin)/(vmax-vmin+0.001)*ph;
+
+  ctx.strokeStyle='#21262d'; ctx.lineWidth=1;
+  for (let i=0;i<=4;i++) {
+    const y=PAD.top+i*ph/4;
+    ctx.beginPath(); ctx.moveTo(PAD.left,y); ctx.lineTo(W-PAD.right,y); ctx.stroke();
+    ctx.fillStyle='#6e7681'; ctx.font='9px monospace'; ctx.textAlign='right';
+    ctx.fillText((vmax-(vmax-vmin)*i/4).toFixed(1)+yUnit, PAD.left-3, y+3);
+  }
+
+  ctx.strokeStyle=color; ctx.lineWidth=2; ctx.beginPath();
+  data.forEach((v,i) => { const x=toX(i), y=toY(v); i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y); });
+  ctx.stroke();
+
+  // ε收敛标注（第150代）
+  const convGen = 150;
+  if (convGen <= xs.length) {
+    const cx = toX(convGen);
+    ctx.strokeStyle='#f2cc60'; ctx.lineWidth=1.2; ctx.setLineDash([5,4]);
+    ctx.beginPath(); ctx.moveTo(cx, PAD.top); ctx.lineTo(cx, PAD.top+ph); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle='#f2cc60'; ctx.font='9px Microsoft YaHei'; ctx.textAlign='left';
+    ctx.fillText('⚡ε→最小', cx+3, PAD.top+12);
+    // 后段收敛区域浅色背景
+    ctx.fillStyle='rgba(126,231,135,0.06)';
+    ctx.fillRect(cx, PAD.top, PAD.left+pw-cx, ph);
+    ctx.fillStyle='rgba(126,231,135,0.5)'; ctx.font='9px Microsoft YaHei'; ctx.textAlign='right';
+    ctx.fillText('收敛阶段', PAD.left+pw-4, PAD.top+12);
+  }
+
+  ctx.fillStyle='#8b949e'; ctx.font='11px Microsoft YaHei'; ctx.textAlign='center';
+  ctx.fillText('迭代代数（共150代）', PAD.left+pw/2, H-4);
+}
+
+function drawEvoCharts() {
+  const sizes = EVO_GENS.map((_,i) => {
+    const r = [18, 25, 32, 33, 38, 33, 32, 40, 48, 49, 48, 50, 47, 50, 45, 52, 57, 61, 67, 73, 77, 77, 70, 75, 78, 77, 78, 82, 87, 77, 82, 80, 79, 79, 77, 79, 87, 85, 77, 80, 86, 85, 82, 83, 86, 84, 82, 88, 83, 82, 82, 82, 81, 81, 88, 83, 88, 87, 84, 82, 85, 83, 85, 85, 82, 84, 79, 86, 83, 83, 86, 84, 87, 82, 82, 86, 80, 83, 80, 85, 81, 85, 86, 83, 81, 85, 83, 86, 82, 82, 82, 81, 79, 82, 83, 83, 84, 83, 82, 81, 83, 83, 83, 85, 84, 81, 86, 80, 82, 83, 83, 82, 81, 82, 86, 82, 82, 81, 82, 82, 82, 85, 84, 82, 84, 84, 82, 79, 81, 82, 83, 83, 83, 84, 84, 82, 84, 85, 83, 81, 85, 81, 83, 78, 83, 83, 87, 80, 80, 84];
+    return r[i] || 0;
+  });
+  drawLine('evo-pareto-size', sizes, '#58a6ff', '帕累托前沿规模', '');
+  drawLine('evo-cost', EVO_COST.filter(v=>v!==null), '#ff7b72', '最低成本', '万');
+  drawLine('evo-cov',  EVO_COV.filter(v=>v!==null),  '#7ee787', '最高覆盖率', '%');
+  drawLine('evo-emg',  EVO_EMG.filter(v=>v!==null),  '#f2cc60', '最短应急时间', 'min');
+  evoDrawn = true;
+}
+
+// ============================================================
+// 地图
+// ============================================================
+let leafletMap, layerGroups = {};
+
+function initMap() {
+  mapInitialized = true;
+  leafletMap = L.map('map', {center:[31.23,121.47], zoom:10});
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+    {attribution:'© Carto',maxZoom:19}).addTo(leafletMap);
+
+  Object.entries(STATIONS).forEach(([sname, pts]) => {
+    const grp = L.layerGroup();
+    pts.forEach(p => {
+      const typeNames = {'1':'微型站','2':'综合站','3':'枢纽站'};
+      const emgKm = {'1':5,'2':15,'3':28};
+
+      // 服务覆盖圆（实线）
+      L.circle([p.lat, p.lon], {
+        radius: p.svc_km * 1000, color: p.color,
+        fillColor: p.color, fillOpacity: 0.08, weight: 1.5,
+      }).addTo(grp);
+
+      // 应急范围圆（虚线）
+      L.circle([p.lat, p.lon], {
+        radius: emgKm[p.type] * 1000, color: p.color,
+        fill: false, weight: 1, dashArray: '5 5', opacity: 0.4,
+      }).addTo(grp);
+
+      // 站点标记
+      const marker = L.circleMarker([p.lat, p.lon], {
+        radius: 6+p.type*2, fillColor: p.color, color:'#fff',
+        weight: 2, fillOpacity: 0.9,
+      }).addTo(grp);
+
+      marker.on('click', () => {
+        document.getElementById('station-info').style.display = 'block';
+        document.getElementById('station-info').innerHTML =
+          `<b style="color:${p.color}">${p.name}</b><br>
+           坐标: ${p.lat.toFixed(4)}, ${p.lon.toFixed(4)}<br>
+           无人机: ${p.ndrones} 架<br>
+           服务半径: ${p.svc_km} km<br>
+           单站成本: ${p.cost} 万元`;
+      });
+    });
+    layerGroups[sname] = grp;
+  });
+
+  showScheme(currentScheme);
+}
+
+function showScheme(sname) {
+  Object.entries(layerGroups).forEach(([n, grp]) => {
+    if (n === sname) grp.addTo(leafletMap);
+    else leafletMap.removeLayer(grp);
+  });
+  document.querySelectorAll('.scheme-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  const btn = document.getElementById('btn-'+sname);
+  if (btn) btn.classList.add('active');
+  currentScheme = sname;
+  document.getElementById('station-info').style.display = 'none';
+}
+
+// ============================================================
+// 初始化
+// ============================================================
+window.addEventListener('load', () => {
+  setTimeout(drawParetoScatter, 100);
+});
+window.addEventListener('resize', () => {
+  setTimeout(drawParetoScatter, 50);
+  if (evoDrawn) setTimeout(drawEvoCharts, 50);
+});
+</script>
+</body>
+</html>

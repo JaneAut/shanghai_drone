@@ -1,0 +1,4505 @@
+{
+  "train_log": [
+    {
+      "episode": 1,
+      "reward": 3.206,
+      "epsilon": 0.8983,
+      "loss": 0.0,
+      "disaster": "地震"
+    },
+    {
+      "episode": 2,
+      "reward": 3.959,
+      "epsilon": 0.8966,
+      "loss": 0.0,
+      "disaster": "地震"
+    },
+    {
+      "episode": 3,
+      "reward": -0.567,
+      "epsilon": 0.8949,
+      "loss": 0.0,
+      "disaster": "停电"
+    },
+    {
+      "episode": 4,
+      "reward": 4.458,
+      "epsilon": 0.8932,
+      "loss": 0.046975,
+      "disaster": "大火"
+    },
+    {
+      "episode": 5,
+      "reward": -0.523,
+      "epsilon": 0.8915,
+      "loss": 0.045358,
+      "disaster": "大火"
+    },
+    {
+      "episode": 6,
+      "reward": 0.255,
+      "epsilon": 0.8898,
+      "loss": 0.036494,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 7,
+      "reward": 3.187,
+      "epsilon": 0.8881,
+      "loss": 0.030782,
+      "disaster": "大火"
+    },
+    {
+      "episode": 8,
+      "reward": 4.443,
+      "epsilon": 0.8864,
+      "loss": 0.026482,
+      "disaster": "地震"
+    },
+    {
+      "episode": 9,
+      "reward": -0.024,
+      "epsilon": 0.8847,
+      "loss": 0.030507,
+      "disaster": "地震"
+    },
+    {
+      "episode": 10,
+      "reward": -0.904,
+      "epsilon": 0.883,
+      "loss": 0.024072,
+      "disaster": "停电"
+    },
+    {
+      "episode": 11,
+      "reward": 3.882,
+      "epsilon": 0.8813,
+      "loss": 0.019172,
+      "disaster": "大火"
+    },
+    {
+      "episode": 12,
+      "reward": 0.283,
+      "epsilon": 0.8796,
+      "loss": 0.021848,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 13,
+      "reward": 4.246,
+      "epsilon": 0.8779,
+      "loss": 0.017643,
+      "disaster": "大火"
+    },
+    {
+      "episode": 14,
+      "reward": 3.066,
+      "epsilon": 0.8762,
+      "loss": 0.016244,
+      "disaster": "大火"
+    },
+    {
+      "episode": 15,
+      "reward": 4.361,
+      "epsilon": 0.8745,
+      "loss": 0.016679,
+      "disaster": "地震"
+    },
+    {
+      "episode": 16,
+      "reward": 3.269,
+      "epsilon": 0.8728,
+      "loss": 0.014313,
+      "disaster": "停电"
+    },
+    {
+      "episode": 17,
+      "reward": -0.081,
+      "epsilon": 0.8711,
+      "loss": 0.017306,
+      "disaster": "停电"
+    },
+    {
+      "episode": 18,
+      "reward": 4.321,
+      "epsilon": 0.8694,
+      "loss": 0.016546,
+      "disaster": "地震"
+    },
+    {
+      "episode": 19,
+      "reward": 3.822,
+      "epsilon": 0.8677,
+      "loss": 0.015597,
+      "disaster": "大火"
+    },
+    {
+      "episode": 20,
+      "reward": 0.325,
+      "epsilon": 0.866,
+      "loss": 0.016462,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 21,
+      "reward": 3.015,
+      "epsilon": 0.8643,
+      "loss": 0.018118,
+      "disaster": "大火"
+    },
+    {
+      "episode": 22,
+      "reward": -0.309,
+      "epsilon": 0.8626,
+      "loss": 0.011699,
+      "disaster": "停电"
+    },
+    {
+      "episode": 23,
+      "reward": -0.127,
+      "epsilon": 0.8609,
+      "loss": 0.014766,
+      "disaster": "地震"
+    },
+    {
+      "episode": 24,
+      "reward": 2.899,
+      "epsilon": 0.8592,
+      "loss": 0.012441,
+      "disaster": "大火"
+    },
+    {
+      "episode": 25,
+      "reward": -0.583,
+      "epsilon": 0.8575,
+      "loss": 0.012036,
+      "disaster": "停电"
+    },
+    {
+      "episode": 26,
+      "reward": -0.447,
+      "epsilon": 0.8558,
+      "loss": 0.011323,
+      "disaster": "停电"
+    },
+    {
+      "episode": 27,
+      "reward": 3.002,
+      "epsilon": 0.8541,
+      "loss": 0.01315,
+      "disaster": "大火"
+    },
+    {
+      "episode": 28,
+      "reward": 0.09,
+      "epsilon": 0.8524,
+      "loss": 0.011584,
+      "disaster": "停电"
+    },
+    {
+      "episode": 29,
+      "reward": 0.311,
+      "epsilon": 0.8507,
+      "loss": 0.012719,
+      "disaster": "停电"
+    },
+    {
+      "episode": 30,
+      "reward": 3.432,
+      "epsilon": 0.849,
+      "loss": 0.011377,
+      "disaster": "地震"
+    },
+    {
+      "episode": 31,
+      "reward": -0.041,
+      "epsilon": 0.8473,
+      "loss": 0.012381,
+      "disaster": "停电"
+    },
+    {
+      "episode": 32,
+      "reward": -0.409,
+      "epsilon": 0.8456,
+      "loss": 0.010715,
+      "disaster": "停电"
+    },
+    {
+      "episode": 33,
+      "reward": -0.812,
+      "epsilon": 0.8439,
+      "loss": 0.011682,
+      "disaster": "停电"
+    },
+    {
+      "episode": 34,
+      "reward": 2.879,
+      "epsilon": 0.8422,
+      "loss": 0.012074,
+      "disaster": "大火"
+    },
+    {
+      "episode": 35,
+      "reward": 4.346,
+      "epsilon": 0.8405,
+      "loss": 0.012117,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 36,
+      "reward": 0.053,
+      "epsilon": 0.8388,
+      "loss": 0.011921,
+      "disaster": "停电"
+    },
+    {
+      "episode": 37,
+      "reward": 3.709,
+      "epsilon": 0.8371,
+      "loss": 0.009715,
+      "disaster": "停电"
+    },
+    {
+      "episode": 38,
+      "reward": 3.925,
+      "epsilon": 0.8354,
+      "loss": 0.012542,
+      "disaster": "地震"
+    },
+    {
+      "episode": 39,
+      "reward": 4.437,
+      "epsilon": 0.8337,
+      "loss": 0.010915,
+      "disaster": "大火"
+    },
+    {
+      "episode": 40,
+      "reward": 3.464,
+      "epsilon": 0.832,
+      "loss": 0.008396,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 41,
+      "reward": 3.683,
+      "epsilon": 0.8303,
+      "loss": 0.010924,
+      "disaster": "大火"
+    },
+    {
+      "episode": 42,
+      "reward": 3.736,
+      "epsilon": 0.8286,
+      "loss": 0.010414,
+      "disaster": "停电"
+    },
+    {
+      "episode": 43,
+      "reward": 0.425,
+      "epsilon": 0.8269,
+      "loss": 0.01449,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 44,
+      "reward": -0.479,
+      "epsilon": 0.8252,
+      "loss": 0.010216,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 45,
+      "reward": -0.35,
+      "epsilon": 0.8235,
+      "loss": 0.012479,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 46,
+      "reward": 4.757,
+      "epsilon": 0.8218,
+      "loss": 0.010445,
+      "disaster": "地震"
+    },
+    {
+      "episode": 47,
+      "reward": 2.989,
+      "epsilon": 0.8201,
+      "loss": 0.009952,
+      "disaster": "地震"
+    },
+    {
+      "episode": 48,
+      "reward": 0.171,
+      "epsilon": 0.8184,
+      "loss": 0.011736,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 49,
+      "reward": 4.423,
+      "epsilon": 0.8167,
+      "loss": 0.011402,
+      "disaster": "大火"
+    },
+    {
+      "episode": 50,
+      "reward": 0.224,
+      "epsilon": 0.815,
+      "loss": 0.010721,
+      "disaster": "地震"
+    },
+    {
+      "episode": 51,
+      "reward": 3.874,
+      "epsilon": 0.8133,
+      "loss": 0.0127,
+      "disaster": "大火"
+    },
+    {
+      "episode": 52,
+      "reward": 0.337,
+      "epsilon": 0.8116,
+      "loss": 0.013806,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 53,
+      "reward": 4.29,
+      "epsilon": 0.8099,
+      "loss": 0.010396,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 54,
+      "reward": 2.999,
+      "epsilon": 0.8082,
+      "loss": 0.010719,
+      "disaster": "地震"
+    },
+    {
+      "episode": 55,
+      "reward": 0.376,
+      "epsilon": 0.8065,
+      "loss": 0.011227,
+      "disaster": "停电"
+    },
+    {
+      "episode": 56,
+      "reward": 2.989,
+      "epsilon": 0.8048,
+      "loss": 0.011219,
+      "disaster": "停电"
+    },
+    {
+      "episode": 57,
+      "reward": 4.52,
+      "epsilon": 0.8031,
+      "loss": 0.011081,
+      "disaster": "地震"
+    },
+    {
+      "episode": 58,
+      "reward": 3.951,
+      "epsilon": 0.8014,
+      "loss": 0.011115,
+      "disaster": "地震"
+    },
+    {
+      "episode": 59,
+      "reward": -0.37,
+      "epsilon": 0.7997,
+      "loss": 0.010024,
+      "disaster": "大火"
+    },
+    {
+      "episode": 60,
+      "reward": -0.122,
+      "epsilon": 0.798,
+      "loss": 0.009126,
+      "disaster": "大火"
+    },
+    {
+      "episode": 61,
+      "reward": 4.629,
+      "epsilon": 0.7963,
+      "loss": 0.008843,
+      "disaster": "大火"
+    },
+    {
+      "episode": 62,
+      "reward": 3.667,
+      "epsilon": 0.7946,
+      "loss": 0.01083,
+      "disaster": "大火"
+    },
+    {
+      "episode": 63,
+      "reward": 0.147,
+      "epsilon": 0.7929,
+      "loss": 0.010488,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 64,
+      "reward": 0.293,
+      "epsilon": 0.7912,
+      "loss": 0.010354,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 65,
+      "reward": -0.202,
+      "epsilon": 0.7895,
+      "loss": 0.010329,
+      "disaster": "停电"
+    },
+    {
+      "episode": 66,
+      "reward": 3.765,
+      "epsilon": 0.7878,
+      "loss": 0.010672,
+      "disaster": "大火"
+    },
+    {
+      "episode": 67,
+      "reward": 3.628,
+      "epsilon": 0.7861,
+      "loss": 0.012945,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 68,
+      "reward": -0.3,
+      "epsilon": 0.7844,
+      "loss": 0.011007,
+      "disaster": "停电"
+    },
+    {
+      "episode": 69,
+      "reward": 4.038,
+      "epsilon": 0.7827,
+      "loss": 0.010781,
+      "disaster": "大火"
+    },
+    {
+      "episode": 70,
+      "reward": -0.116,
+      "epsilon": 0.781,
+      "loss": 0.010873,
+      "disaster": "停电"
+    },
+    {
+      "episode": 71,
+      "reward": 4.81,
+      "epsilon": 0.7793,
+      "loss": 0.012621,
+      "disaster": "地震"
+    },
+    {
+      "episode": 72,
+      "reward": 3.575,
+      "epsilon": 0.7776,
+      "loss": 0.011335,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 73,
+      "reward": 4.46,
+      "epsilon": 0.7759,
+      "loss": 0.011128,
+      "disaster": "地震"
+    },
+    {
+      "episode": 74,
+      "reward": -0.017,
+      "epsilon": 0.7742,
+      "loss": 0.012545,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 75,
+      "reward": 3.525,
+      "epsilon": 0.7725,
+      "loss": 0.011264,
+      "disaster": "大火"
+    },
+    {
+      "episode": 76,
+      "reward": 0.627,
+      "epsilon": 0.7708,
+      "loss": 0.012282,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 77,
+      "reward": 3.859,
+      "epsilon": 0.7691,
+      "loss": 0.013298,
+      "disaster": "大火"
+    },
+    {
+      "episode": 78,
+      "reward": -0.242,
+      "epsilon": 0.7674,
+      "loss": 0.009713,
+      "disaster": "停电"
+    },
+    {
+      "episode": 79,
+      "reward": 3.852,
+      "epsilon": 0.7657,
+      "loss": 0.012855,
+      "disaster": "大火"
+    },
+    {
+      "episode": 80,
+      "reward": 0.06,
+      "epsilon": 0.764,
+      "loss": 0.010901,
+      "disaster": "停电"
+    },
+    {
+      "episode": 81,
+      "reward": -0.523,
+      "epsilon": 0.7623,
+      "loss": 0.010746,
+      "disaster": "停电"
+    },
+    {
+      "episode": 82,
+      "reward": 0.368,
+      "epsilon": 0.7606,
+      "loss": 0.016455,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 83,
+      "reward": -0.237,
+      "epsilon": 0.7589,
+      "loss": 0.012442,
+      "disaster": "停电"
+    },
+    {
+      "episode": 84,
+      "reward": 3.588,
+      "epsilon": 0.7572,
+      "loss": 0.011121,
+      "disaster": "大火"
+    },
+    {
+      "episode": 85,
+      "reward": 3.542,
+      "epsilon": 0.7555,
+      "loss": 0.010937,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 86,
+      "reward": -0.141,
+      "epsilon": 0.7538,
+      "loss": 0.009203,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 87,
+      "reward": 0.304,
+      "epsilon": 0.7521,
+      "loss": 0.01291,
+      "disaster": "停电"
+    },
+    {
+      "episode": 88,
+      "reward": 4.509,
+      "epsilon": 0.7504,
+      "loss": 0.010984,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 89,
+      "reward": 3.309,
+      "epsilon": 0.7487,
+      "loss": 0.014481,
+      "disaster": "停电"
+    },
+    {
+      "episode": 90,
+      "reward": 0.112,
+      "epsilon": 0.747,
+      "loss": 0.015498,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 91,
+      "reward": 4.722,
+      "epsilon": 0.7453,
+      "loss": 0.012063,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 92,
+      "reward": 3.912,
+      "epsilon": 0.7436,
+      "loss": 0.011442,
+      "disaster": "大火"
+    },
+    {
+      "episode": 93,
+      "reward": -0.083,
+      "epsilon": 0.7419,
+      "loss": 0.011938,
+      "disaster": "停电"
+    },
+    {
+      "episode": 94,
+      "reward": 4.659,
+      "epsilon": 0.7402,
+      "loss": 0.012113,
+      "disaster": "停电"
+    },
+    {
+      "episode": 95,
+      "reward": -0.038,
+      "epsilon": 0.7385,
+      "loss": 0.011751,
+      "disaster": "停电"
+    },
+    {
+      "episode": 96,
+      "reward": 4.495,
+      "epsilon": 0.7368,
+      "loss": 0.007693,
+      "disaster": "地震"
+    },
+    {
+      "episode": 97,
+      "reward": 3.649,
+      "epsilon": 0.7351,
+      "loss": 0.008959,
+      "disaster": "大火"
+    },
+    {
+      "episode": 98,
+      "reward": 3.173,
+      "epsilon": 0.7334,
+      "loss": 0.011751,
+      "disaster": "地震"
+    },
+    {
+      "episode": 99,
+      "reward": -0.772,
+      "epsilon": 0.7317,
+      "loss": 0.01078,
+      "disaster": "大火"
+    },
+    {
+      "episode": 100,
+      "reward": 4.035,
+      "epsilon": 0.73,
+      "loss": 0.015467,
+      "disaster": "大火"
+    },
+    {
+      "episode": 101,
+      "reward": 3.695,
+      "epsilon": 0.7283,
+      "loss": 0.013573,
+      "disaster": "大火"
+    },
+    {
+      "episode": 102,
+      "reward": 3.107,
+      "epsilon": 0.7266,
+      "loss": 0.014135,
+      "disaster": "停电"
+    },
+    {
+      "episode": 103,
+      "reward": 4.382,
+      "epsilon": 0.7249,
+      "loss": 0.009344,
+      "disaster": "大火"
+    },
+    {
+      "episode": 104,
+      "reward": 2.842,
+      "epsilon": 0.7232,
+      "loss": 0.012515,
+      "disaster": "大火"
+    },
+    {
+      "episode": 105,
+      "reward": 3.379,
+      "epsilon": 0.7215,
+      "loss": 0.012173,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 106,
+      "reward": 0.096,
+      "epsilon": 0.7198,
+      "loss": 0.010051,
+      "disaster": "停电"
+    },
+    {
+      "episode": 107,
+      "reward": 2.559,
+      "epsilon": 0.7181,
+      "loss": 0.011518,
+      "disaster": "地震"
+    },
+    {
+      "episode": 108,
+      "reward": 0.316,
+      "epsilon": 0.7164,
+      "loss": 0.012965,
+      "disaster": "停电"
+    },
+    {
+      "episode": 109,
+      "reward": 4.523,
+      "epsilon": 0.7147,
+      "loss": 0.012582,
+      "disaster": "地震"
+    },
+    {
+      "episode": 110,
+      "reward": 3.305,
+      "epsilon": 0.713,
+      "loss": 0.014076,
+      "disaster": "大火"
+    },
+    {
+      "episode": 111,
+      "reward": 4.128,
+      "epsilon": 0.7113,
+      "loss": 0.009399,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 112,
+      "reward": 0.193,
+      "epsilon": 0.7096,
+      "loss": 0.013453,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 113,
+      "reward": 4.354,
+      "epsilon": 0.7079,
+      "loss": 0.012463,
+      "disaster": "大火"
+    },
+    {
+      "episode": 114,
+      "reward": 3.454,
+      "epsilon": 0.7062,
+      "loss": 0.013101,
+      "disaster": "停电"
+    },
+    {
+      "episode": 115,
+      "reward": 3.884,
+      "epsilon": 0.7045,
+      "loss": 0.008543,
+      "disaster": "地震"
+    },
+    {
+      "episode": 116,
+      "reward": -0.392,
+      "epsilon": 0.7028,
+      "loss": 0.012046,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 117,
+      "reward": 4.721,
+      "epsilon": 0.7011,
+      "loss": 0.011525,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 118,
+      "reward": -0.523,
+      "epsilon": 0.6994,
+      "loss": 0.011207,
+      "disaster": "停电"
+    },
+    {
+      "episode": 119,
+      "reward": 4.738,
+      "epsilon": 0.6977,
+      "loss": 0.013537,
+      "disaster": "地震"
+    },
+    {
+      "episode": 120,
+      "reward": 4.684,
+      "epsilon": 0.696,
+      "loss": 0.009286,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 121,
+      "reward": -0.024,
+      "epsilon": 0.6943,
+      "loss": 0.010069,
+      "disaster": "停电"
+    },
+    {
+      "episode": 122,
+      "reward": 0.227,
+      "epsilon": 0.6926,
+      "loss": 0.012144,
+      "disaster": "停电"
+    },
+    {
+      "episode": 123,
+      "reward": 5.166,
+      "epsilon": 0.6909,
+      "loss": 0.011892,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 124,
+      "reward": 4.444,
+      "epsilon": 0.6892,
+      "loss": 0.010889,
+      "disaster": "停电"
+    },
+    {
+      "episode": 125,
+      "reward": -0.776,
+      "epsilon": 0.6875,
+      "loss": 0.010995,
+      "disaster": "停电"
+    },
+    {
+      "episode": 126,
+      "reward": 3.316,
+      "epsilon": 0.6858,
+      "loss": 0.013092,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 127,
+      "reward": 4.947,
+      "epsilon": 0.6841,
+      "loss": 0.011427,
+      "disaster": "地震"
+    },
+    {
+      "episode": 128,
+      "reward": 3.574,
+      "epsilon": 0.6824,
+      "loss": 0.013476,
+      "disaster": "大火"
+    },
+    {
+      "episode": 129,
+      "reward": 2.941,
+      "epsilon": 0.6807,
+      "loss": 0.014132,
+      "disaster": "大火"
+    },
+    {
+      "episode": 130,
+      "reward": 4.228,
+      "epsilon": 0.679,
+      "loss": 0.008668,
+      "disaster": "大火"
+    },
+    {
+      "episode": 131,
+      "reward": -0.102,
+      "epsilon": 0.6773,
+      "loss": 0.011125,
+      "disaster": "停电"
+    },
+    {
+      "episode": 132,
+      "reward": -0.018,
+      "epsilon": 0.6756,
+      "loss": 0.011976,
+      "disaster": "停电"
+    },
+    {
+      "episode": 133,
+      "reward": 0.133,
+      "epsilon": 0.6739,
+      "loss": 0.011099,
+      "disaster": "停电"
+    },
+    {
+      "episode": 134,
+      "reward": 3.579,
+      "epsilon": 0.6722,
+      "loss": 0.011304,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 135,
+      "reward": 4.628,
+      "epsilon": 0.6705,
+      "loss": 0.010464,
+      "disaster": "大火"
+    },
+    {
+      "episode": 136,
+      "reward": -0.105,
+      "epsilon": 0.6688,
+      "loss": 0.012614,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 137,
+      "reward": 0.86,
+      "epsilon": 0.6671,
+      "loss": 0.009912,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 138,
+      "reward": 5.014,
+      "epsilon": 0.6654,
+      "loss": 0.011788,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 139,
+      "reward": -0.003,
+      "epsilon": 0.6637,
+      "loss": 0.011367,
+      "disaster": "停电"
+    },
+    {
+      "episode": 140,
+      "reward": -0.054,
+      "epsilon": 0.662,
+      "loss": 0.012314,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 141,
+      "reward": -0.502,
+      "epsilon": 0.6603,
+      "loss": 0.011449,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 142,
+      "reward": -0.184,
+      "epsilon": 0.6586,
+      "loss": 0.011168,
+      "disaster": "地震"
+    },
+    {
+      "episode": 143,
+      "reward": 2.938,
+      "epsilon": 0.6569,
+      "loss": 0.011873,
+      "disaster": "停电"
+    },
+    {
+      "episode": 144,
+      "reward": 3.531,
+      "epsilon": 0.6552,
+      "loss": 0.013097,
+      "disaster": "地震"
+    },
+    {
+      "episode": 145,
+      "reward": -0.882,
+      "epsilon": 0.6535,
+      "loss": 0.014033,
+      "disaster": "大火"
+    },
+    {
+      "episode": 146,
+      "reward": 3.566,
+      "epsilon": 0.6518,
+      "loss": 0.014193,
+      "disaster": "大火"
+    },
+    {
+      "episode": 147,
+      "reward": 3.455,
+      "epsilon": 0.6501,
+      "loss": 0.012286,
+      "disaster": "大火"
+    },
+    {
+      "episode": 148,
+      "reward": 0.139,
+      "epsilon": 0.6484,
+      "loss": 0.012133,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 149,
+      "reward": 2.748,
+      "epsilon": 0.6467,
+      "loss": 0.011913,
+      "disaster": "大火"
+    },
+    {
+      "episode": 150,
+      "reward": 0.34,
+      "epsilon": 0.645,
+      "loss": 0.010392,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 151,
+      "reward": 3.435,
+      "epsilon": 0.6433,
+      "loss": 0.010307,
+      "disaster": "停电"
+    },
+    {
+      "episode": 152,
+      "reward": 5.085,
+      "epsilon": 0.6416,
+      "loss": 0.013537,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 153,
+      "reward": 4.929,
+      "epsilon": 0.6399,
+      "loss": 0.010976,
+      "disaster": "地震"
+    },
+    {
+      "episode": 154,
+      "reward": 3.412,
+      "epsilon": 0.6382,
+      "loss": 0.012241,
+      "disaster": "地震"
+    },
+    {
+      "episode": 155,
+      "reward": 4.249,
+      "epsilon": 0.6365,
+      "loss": 0.011221,
+      "disaster": "地震"
+    },
+    {
+      "episode": 156,
+      "reward": 3.645,
+      "epsilon": 0.6348,
+      "loss": 0.01106,
+      "disaster": "地震"
+    },
+    {
+      "episode": 157,
+      "reward": 2.923,
+      "epsilon": 0.6331,
+      "loss": 0.011399,
+      "disaster": "地震"
+    },
+    {
+      "episode": 158,
+      "reward": 4.995,
+      "epsilon": 0.6314,
+      "loss": 0.013209,
+      "disaster": "地震"
+    },
+    {
+      "episode": 159,
+      "reward": -0.468,
+      "epsilon": 0.6297,
+      "loss": 0.010405,
+      "disaster": "大火"
+    },
+    {
+      "episode": 160,
+      "reward": 3.577,
+      "epsilon": 0.628,
+      "loss": 0.008698,
+      "disaster": "地震"
+    },
+    {
+      "episode": 161,
+      "reward": 4.0,
+      "epsilon": 0.6263,
+      "loss": 0.011942,
+      "disaster": "大火"
+    },
+    {
+      "episode": 162,
+      "reward": 4.877,
+      "epsilon": 0.6246,
+      "loss": 0.012625,
+      "disaster": "地震"
+    },
+    {
+      "episode": 163,
+      "reward": -1.033,
+      "epsilon": 0.6229,
+      "loss": 0.012538,
+      "disaster": "停电"
+    },
+    {
+      "episode": 164,
+      "reward": 4.13,
+      "epsilon": 0.6212,
+      "loss": 0.011677,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 165,
+      "reward": 3.605,
+      "epsilon": 0.6195,
+      "loss": 0.010433,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 166,
+      "reward": -0.246,
+      "epsilon": 0.6178,
+      "loss": 0.010293,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 167,
+      "reward": -0.446,
+      "epsilon": 0.6161,
+      "loss": 0.011489,
+      "disaster": "大火"
+    },
+    {
+      "episode": 168,
+      "reward": -0.443,
+      "epsilon": 0.6144,
+      "loss": 0.009337,
+      "disaster": "停电"
+    },
+    {
+      "episode": 169,
+      "reward": -0.211,
+      "epsilon": 0.6127,
+      "loss": 0.014134,
+      "disaster": "停电"
+    },
+    {
+      "episode": 170,
+      "reward": 4.499,
+      "epsilon": 0.611,
+      "loss": 0.012616,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 171,
+      "reward": -0.048,
+      "epsilon": 0.6093,
+      "loss": 0.008814,
+      "disaster": "大火"
+    },
+    {
+      "episode": 172,
+      "reward": 3.163,
+      "epsilon": 0.6076,
+      "loss": 0.010055,
+      "disaster": "地震"
+    },
+    {
+      "episode": 173,
+      "reward": 3.145,
+      "epsilon": 0.6059,
+      "loss": 0.01266,
+      "disaster": "地震"
+    },
+    {
+      "episode": 174,
+      "reward": 0.251,
+      "epsilon": 0.6042,
+      "loss": 0.010863,
+      "disaster": "地震"
+    },
+    {
+      "episode": 175,
+      "reward": 0.354,
+      "epsilon": 0.6025,
+      "loss": 0.012752,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 176,
+      "reward": 3.432,
+      "epsilon": 0.6008,
+      "loss": 0.010628,
+      "disaster": "大火"
+    },
+    {
+      "episode": 177,
+      "reward": 3.469,
+      "epsilon": 0.5991,
+      "loss": 0.009796,
+      "disaster": "大火"
+    },
+    {
+      "episode": 178,
+      "reward": 3.506,
+      "epsilon": 0.5974,
+      "loss": 0.01606,
+      "disaster": "地震"
+    },
+    {
+      "episode": 179,
+      "reward": 0.061,
+      "epsilon": 0.5957,
+      "loss": 0.011083,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 180,
+      "reward": 3.286,
+      "epsilon": 0.594,
+      "loss": 0.013803,
+      "disaster": "大火"
+    },
+    {
+      "episode": 181,
+      "reward": 3.267,
+      "epsilon": 0.5923,
+      "loss": 0.010059,
+      "disaster": "大火"
+    },
+    {
+      "episode": 182,
+      "reward": 4.0,
+      "epsilon": 0.5906,
+      "loss": 0.012925,
+      "disaster": "停电"
+    },
+    {
+      "episode": 183,
+      "reward": 4.07,
+      "epsilon": 0.5889,
+      "loss": 0.012208,
+      "disaster": "大火"
+    },
+    {
+      "episode": 184,
+      "reward": 3.645,
+      "epsilon": 0.5872,
+      "loss": 0.011849,
+      "disaster": "停电"
+    },
+    {
+      "episode": 185,
+      "reward": 4.079,
+      "epsilon": 0.5855,
+      "loss": 0.013051,
+      "disaster": "停电"
+    },
+    {
+      "episode": 186,
+      "reward": 0.003,
+      "epsilon": 0.5838,
+      "loss": 0.011389,
+      "disaster": "大火"
+    },
+    {
+      "episode": 187,
+      "reward": 4.556,
+      "epsilon": 0.5821,
+      "loss": 0.010798,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 188,
+      "reward": -0.115,
+      "epsilon": 0.5804,
+      "loss": 0.012312,
+      "disaster": "停电"
+    },
+    {
+      "episode": 189,
+      "reward": -0.112,
+      "epsilon": 0.5787,
+      "loss": 0.010923,
+      "disaster": "停电"
+    },
+    {
+      "episode": 190,
+      "reward": 3.969,
+      "epsilon": 0.577,
+      "loss": 0.011808,
+      "disaster": "停电"
+    },
+    {
+      "episode": 191,
+      "reward": -0.04,
+      "epsilon": 0.5753,
+      "loss": 0.012333,
+      "disaster": "停电"
+    },
+    {
+      "episode": 192,
+      "reward": -0.383,
+      "epsilon": 0.5736,
+      "loss": 0.008773,
+      "disaster": "大火"
+    },
+    {
+      "episode": 193,
+      "reward": 0.207,
+      "epsilon": 0.5719,
+      "loss": 0.015688,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 194,
+      "reward": 4.579,
+      "epsilon": 0.5702,
+      "loss": 0.007783,
+      "disaster": "地震"
+    },
+    {
+      "episode": 195,
+      "reward": 3.441,
+      "epsilon": 0.5685,
+      "loss": 0.011453,
+      "disaster": "停电"
+    },
+    {
+      "episode": 196,
+      "reward": -0.538,
+      "epsilon": 0.5668,
+      "loss": 0.011712,
+      "disaster": "停电"
+    },
+    {
+      "episode": 197,
+      "reward": 0.268,
+      "epsilon": 0.5651,
+      "loss": 0.014775,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 198,
+      "reward": 3.783,
+      "epsilon": 0.5634,
+      "loss": 0.012394,
+      "disaster": "大火"
+    },
+    {
+      "episode": 199,
+      "reward": 3.636,
+      "epsilon": 0.5617,
+      "loss": 0.013272,
+      "disaster": "地震"
+    },
+    {
+      "episode": 200,
+      "reward": 0.464,
+      "epsilon": 0.56,
+      "loss": 0.010178,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 201,
+      "reward": 3.514,
+      "epsilon": 0.5583,
+      "loss": 0.014087,
+      "disaster": "大火"
+    },
+    {
+      "episode": 202,
+      "reward": 3.173,
+      "epsilon": 0.5566,
+      "loss": 0.011772,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 203,
+      "reward": 3.277,
+      "epsilon": 0.5549,
+      "loss": 0.013629,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 204,
+      "reward": -0.824,
+      "epsilon": 0.5532,
+      "loss": 0.014328,
+      "disaster": "大火"
+    },
+    {
+      "episode": 205,
+      "reward": 4.21,
+      "epsilon": 0.5515,
+      "loss": 0.010203,
+      "disaster": "停电"
+    },
+    {
+      "episode": 206,
+      "reward": -0.238,
+      "epsilon": 0.5498,
+      "loss": 0.012523,
+      "disaster": "地震"
+    },
+    {
+      "episode": 207,
+      "reward": 2.824,
+      "epsilon": 0.5481,
+      "loss": 0.009982,
+      "disaster": "地震"
+    },
+    {
+      "episode": 208,
+      "reward": 3.882,
+      "epsilon": 0.5464,
+      "loss": 0.011135,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 209,
+      "reward": 0.025,
+      "epsilon": 0.5447,
+      "loss": 0.01002,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 210,
+      "reward": -0.484,
+      "epsilon": 0.543,
+      "loss": 0.012346,
+      "disaster": "地震"
+    },
+    {
+      "episode": 211,
+      "reward": 3.256,
+      "epsilon": 0.5413,
+      "loss": 0.013801,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 212,
+      "reward": 3.253,
+      "epsilon": 0.5396,
+      "loss": 0.009821,
+      "disaster": "大火"
+    },
+    {
+      "episode": 213,
+      "reward": -0.012,
+      "epsilon": 0.5379,
+      "loss": 0.012601,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 214,
+      "reward": 4.382,
+      "epsilon": 0.5362,
+      "loss": 0.012704,
+      "disaster": "地震"
+    },
+    {
+      "episode": 215,
+      "reward": -0.713,
+      "epsilon": 0.5345,
+      "loss": 0.01371,
+      "disaster": "停电"
+    },
+    {
+      "episode": 216,
+      "reward": 4.16,
+      "epsilon": 0.5328,
+      "loss": 0.017216,
+      "disaster": "地震"
+    },
+    {
+      "episode": 217,
+      "reward": 4.145,
+      "epsilon": 0.5311,
+      "loss": 0.00987,
+      "disaster": "地震"
+    },
+    {
+      "episode": 218,
+      "reward": 3.451,
+      "epsilon": 0.5294,
+      "loss": 0.012411,
+      "disaster": "大火"
+    },
+    {
+      "episode": 219,
+      "reward": 3.524,
+      "epsilon": 0.5277,
+      "loss": 0.013856,
+      "disaster": "大火"
+    },
+    {
+      "episode": 220,
+      "reward": 4.242,
+      "epsilon": 0.526,
+      "loss": 0.014812,
+      "disaster": "地震"
+    },
+    {
+      "episode": 221,
+      "reward": 3.727,
+      "epsilon": 0.5243,
+      "loss": 0.01023,
+      "disaster": "大火"
+    },
+    {
+      "episode": 222,
+      "reward": -0.141,
+      "epsilon": 0.5226,
+      "loss": 0.012554,
+      "disaster": "地震"
+    },
+    {
+      "episode": 223,
+      "reward": 3.22,
+      "epsilon": 0.5209,
+      "loss": 0.013553,
+      "disaster": "大火"
+    },
+    {
+      "episode": 224,
+      "reward": 4.713,
+      "epsilon": 0.5192,
+      "loss": 0.01257,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 225,
+      "reward": 0.34,
+      "epsilon": 0.5175,
+      "loss": 0.012843,
+      "disaster": "地震"
+    },
+    {
+      "episode": 226,
+      "reward": 3.457,
+      "epsilon": 0.5158,
+      "loss": 0.013482,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 227,
+      "reward": -0.017,
+      "epsilon": 0.5141,
+      "loss": 0.015391,
+      "disaster": "停电"
+    },
+    {
+      "episode": 228,
+      "reward": 5.238,
+      "epsilon": 0.5124,
+      "loss": 0.009125,
+      "disaster": "地震"
+    },
+    {
+      "episode": 229,
+      "reward": 4.597,
+      "epsilon": 0.5107,
+      "loss": 0.011525,
+      "disaster": "地震"
+    },
+    {
+      "episode": 230,
+      "reward": 0.126,
+      "epsilon": 0.509,
+      "loss": 0.011843,
+      "disaster": "停电"
+    },
+    {
+      "episode": 231,
+      "reward": -0.488,
+      "epsilon": 0.5073,
+      "loss": 0.01058,
+      "disaster": "停电"
+    },
+    {
+      "episode": 232,
+      "reward": 0.168,
+      "epsilon": 0.5056,
+      "loss": 0.013671,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 233,
+      "reward": 0.334,
+      "epsilon": 0.5039,
+      "loss": 0.011304,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 234,
+      "reward": 3.318,
+      "epsilon": 0.5022,
+      "loss": 0.012489,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 235,
+      "reward": 4.397,
+      "epsilon": 0.5005,
+      "loss": 0.01074,
+      "disaster": "地震"
+    },
+    {
+      "episode": 236,
+      "reward": -0.013,
+      "epsilon": 0.4988,
+      "loss": 0.012923,
+      "disaster": "地震"
+    },
+    {
+      "episode": 237,
+      "reward": -0.063,
+      "epsilon": 0.4971,
+      "loss": 0.011744,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 238,
+      "reward": -0.665,
+      "epsilon": 0.4954,
+      "loss": 0.011168,
+      "disaster": "地震"
+    },
+    {
+      "episode": 239,
+      "reward": -0.775,
+      "epsilon": 0.4937,
+      "loss": 0.010564,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 240,
+      "reward": 4.242,
+      "epsilon": 0.492,
+      "loss": 0.012475,
+      "disaster": "地震"
+    },
+    {
+      "episode": 241,
+      "reward": -0.598,
+      "epsilon": 0.4903,
+      "loss": 0.012284,
+      "disaster": "地震"
+    },
+    {
+      "episode": 242,
+      "reward": 4.098,
+      "epsilon": 0.4886,
+      "loss": 0.008608,
+      "disaster": "大火"
+    },
+    {
+      "episode": 243,
+      "reward": 2.718,
+      "epsilon": 0.4869,
+      "loss": 0.012174,
+      "disaster": "大火"
+    },
+    {
+      "episode": 244,
+      "reward": 4.119,
+      "epsilon": 0.4852,
+      "loss": 0.010218,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 245,
+      "reward": -0.528,
+      "epsilon": 0.4835,
+      "loss": 0.011181,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 246,
+      "reward": 4.116,
+      "epsilon": 0.4818,
+      "loss": 0.012169,
+      "disaster": "大火"
+    },
+    {
+      "episode": 247,
+      "reward": 0.255,
+      "epsilon": 0.4801,
+      "loss": 0.012601,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 248,
+      "reward": -0.304,
+      "epsilon": 0.4784,
+      "loss": 0.009421,
+      "disaster": "停电"
+    },
+    {
+      "episode": 249,
+      "reward": -0.637,
+      "epsilon": 0.4767,
+      "loss": 0.012142,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 250,
+      "reward": 3.517,
+      "epsilon": 0.475,
+      "loss": 0.011762,
+      "disaster": "大火"
+    },
+    {
+      "episode": 251,
+      "reward": -0.199,
+      "epsilon": 0.4733,
+      "loss": 0.012563,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 252,
+      "reward": 4.304,
+      "epsilon": 0.4716,
+      "loss": 0.010388,
+      "disaster": "大火"
+    },
+    {
+      "episode": 253,
+      "reward": 3.936,
+      "epsilon": 0.4699,
+      "loss": 0.010119,
+      "disaster": "大火"
+    },
+    {
+      "episode": 254,
+      "reward": 3.992,
+      "epsilon": 0.4682,
+      "loss": 0.010509,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 255,
+      "reward": 3.242,
+      "epsilon": 0.4665,
+      "loss": 0.014626,
+      "disaster": "大火"
+    },
+    {
+      "episode": 256,
+      "reward": 4.891,
+      "epsilon": 0.4648,
+      "loss": 0.012016,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 257,
+      "reward": -0.071,
+      "epsilon": 0.4631,
+      "loss": 0.014127,
+      "disaster": "停电"
+    },
+    {
+      "episode": 258,
+      "reward": 4.768,
+      "epsilon": 0.4614,
+      "loss": 0.013554,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 259,
+      "reward": 3.399,
+      "epsilon": 0.4597,
+      "loss": 0.012129,
+      "disaster": "地震"
+    },
+    {
+      "episode": 260,
+      "reward": 4.109,
+      "epsilon": 0.458,
+      "loss": 0.012531,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 261,
+      "reward": 3.609,
+      "epsilon": 0.4563,
+      "loss": 0.012843,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 262,
+      "reward": 4.608,
+      "epsilon": 0.4546,
+      "loss": 0.015617,
+      "disaster": "地震"
+    },
+    {
+      "episode": 263,
+      "reward": -0.102,
+      "epsilon": 0.4529,
+      "loss": 0.014406,
+      "disaster": "大火"
+    },
+    {
+      "episode": 264,
+      "reward": 3.531,
+      "epsilon": 0.4512,
+      "loss": 0.013322,
+      "disaster": "大火"
+    },
+    {
+      "episode": 265,
+      "reward": 3.922,
+      "epsilon": 0.4495,
+      "loss": 0.011824,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 266,
+      "reward": 3.89,
+      "epsilon": 0.4478,
+      "loss": 0.014726,
+      "disaster": "停电"
+    },
+    {
+      "episode": 267,
+      "reward": 4.707,
+      "epsilon": 0.4461,
+      "loss": 0.013544,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 268,
+      "reward": 2.93,
+      "epsilon": 0.4444,
+      "loss": 0.012828,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 269,
+      "reward": -0.673,
+      "epsilon": 0.4427,
+      "loss": 0.011223,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 270,
+      "reward": 4.13,
+      "epsilon": 0.441,
+      "loss": 0.011013,
+      "disaster": "地震"
+    },
+    {
+      "episode": 271,
+      "reward": -0.387,
+      "epsilon": 0.4393,
+      "loss": 0.011657,
+      "disaster": "停电"
+    },
+    {
+      "episode": 272,
+      "reward": -0.738,
+      "epsilon": 0.4376,
+      "loss": 0.010095,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 273,
+      "reward": -0.155,
+      "epsilon": 0.4359,
+      "loss": 0.012632,
+      "disaster": "停电"
+    },
+    {
+      "episode": 274,
+      "reward": 3.382,
+      "epsilon": 0.4342,
+      "loss": 0.011418,
+      "disaster": "大火"
+    },
+    {
+      "episode": 275,
+      "reward": 3.324,
+      "epsilon": 0.4325,
+      "loss": 0.015755,
+      "disaster": "大火"
+    },
+    {
+      "episode": 276,
+      "reward": -0.012,
+      "epsilon": 0.4308,
+      "loss": 0.013981,
+      "disaster": "停电"
+    },
+    {
+      "episode": 277,
+      "reward": 3.973,
+      "epsilon": 0.4291,
+      "loss": 0.011538,
+      "disaster": "大火"
+    },
+    {
+      "episode": 278,
+      "reward": 4.227,
+      "epsilon": 0.4274,
+      "loss": 0.01463,
+      "disaster": "大火"
+    },
+    {
+      "episode": 279,
+      "reward": -0.316,
+      "epsilon": 0.4257,
+      "loss": 0.009929,
+      "disaster": "地震"
+    },
+    {
+      "episode": 280,
+      "reward": -0.25,
+      "epsilon": 0.424,
+      "loss": 0.010914,
+      "disaster": "地震"
+    },
+    {
+      "episode": 281,
+      "reward": 3.436,
+      "epsilon": 0.4223,
+      "loss": 0.012763,
+      "disaster": "大火"
+    },
+    {
+      "episode": 282,
+      "reward": 0.018,
+      "epsilon": 0.4206,
+      "loss": 0.015318,
+      "disaster": "地震"
+    },
+    {
+      "episode": 283,
+      "reward": 3.887,
+      "epsilon": 0.4189,
+      "loss": 0.010859,
+      "disaster": "大火"
+    },
+    {
+      "episode": 284,
+      "reward": 0.1,
+      "epsilon": 0.4172,
+      "loss": 0.012317,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 285,
+      "reward": 3.865,
+      "epsilon": 0.4155,
+      "loss": 0.012034,
+      "disaster": "大火"
+    },
+    {
+      "episode": 286,
+      "reward": 3.144,
+      "epsilon": 0.4138,
+      "loss": 0.011022,
+      "disaster": "大火"
+    },
+    {
+      "episode": 287,
+      "reward": 4.41,
+      "epsilon": 0.4121,
+      "loss": 0.012295,
+      "disaster": "停电"
+    },
+    {
+      "episode": 288,
+      "reward": -0.856,
+      "epsilon": 0.4104,
+      "loss": 0.013074,
+      "disaster": "地震"
+    },
+    {
+      "episode": 289,
+      "reward": -0.026,
+      "epsilon": 0.4087,
+      "loss": 0.011171,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 290,
+      "reward": 4.282,
+      "epsilon": 0.407,
+      "loss": 0.010493,
+      "disaster": "停电"
+    },
+    {
+      "episode": 291,
+      "reward": 4.007,
+      "epsilon": 0.4053,
+      "loss": 0.011862,
+      "disaster": "地震"
+    },
+    {
+      "episode": 292,
+      "reward": 3.579,
+      "epsilon": 0.4036,
+      "loss": 0.014642,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 293,
+      "reward": 3.818,
+      "epsilon": 0.4019,
+      "loss": 0.013086,
+      "disaster": "地震"
+    },
+    {
+      "episode": 294,
+      "reward": 3.276,
+      "epsilon": 0.4002,
+      "loss": 0.011513,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 295,
+      "reward": 3.55,
+      "epsilon": 0.3985,
+      "loss": 0.011327,
+      "disaster": "大火"
+    },
+    {
+      "episode": 296,
+      "reward": 3.289,
+      "epsilon": 0.3968,
+      "loss": 0.012754,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 297,
+      "reward": 4.83,
+      "epsilon": 0.3951,
+      "loss": 0.013199,
+      "disaster": "地震"
+    },
+    {
+      "episode": 298,
+      "reward": -0.108,
+      "epsilon": 0.3934,
+      "loss": 0.011351,
+      "disaster": "停电"
+    },
+    {
+      "episode": 299,
+      "reward": -0.399,
+      "epsilon": 0.3917,
+      "loss": 0.012531,
+      "disaster": "大火"
+    },
+    {
+      "episode": 300,
+      "reward": 4.223,
+      "epsilon": 0.39,
+      "loss": 0.010901,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 301,
+      "reward": -0.163,
+      "epsilon": 0.3883,
+      "loss": 0.009348,
+      "disaster": "停电"
+    },
+    {
+      "episode": 302,
+      "reward": 3.784,
+      "epsilon": 0.3866,
+      "loss": 0.010463,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 303,
+      "reward": 3.412,
+      "epsilon": 0.3849,
+      "loss": 0.012164,
+      "disaster": "大火"
+    },
+    {
+      "episode": 304,
+      "reward": -0.356,
+      "epsilon": 0.3832,
+      "loss": 0.011287,
+      "disaster": "停电"
+    },
+    {
+      "episode": 305,
+      "reward": 0.297,
+      "epsilon": 0.3815,
+      "loss": 0.011624,
+      "disaster": "地震"
+    },
+    {
+      "episode": 306,
+      "reward": 4.038,
+      "epsilon": 0.3798,
+      "loss": 0.010513,
+      "disaster": "大火"
+    },
+    {
+      "episode": 307,
+      "reward": -0.045,
+      "epsilon": 0.3781,
+      "loss": 0.009714,
+      "disaster": "地震"
+    },
+    {
+      "episode": 308,
+      "reward": 4.106,
+      "epsilon": 0.3764,
+      "loss": 0.012396,
+      "disaster": "地震"
+    },
+    {
+      "episode": 309,
+      "reward": 0.033,
+      "epsilon": 0.3747,
+      "loss": 0.013354,
+      "disaster": "大火"
+    },
+    {
+      "episode": 310,
+      "reward": 3.695,
+      "epsilon": 0.373,
+      "loss": 0.011599,
+      "disaster": "地震"
+    },
+    {
+      "episode": 311,
+      "reward": 0.052,
+      "epsilon": 0.3713,
+      "loss": 0.012809,
+      "disaster": "停电"
+    },
+    {
+      "episode": 312,
+      "reward": 3.234,
+      "epsilon": 0.3696,
+      "loss": 0.013168,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 313,
+      "reward": 4.277,
+      "epsilon": 0.3679,
+      "loss": 0.012928,
+      "disaster": "地震"
+    },
+    {
+      "episode": 314,
+      "reward": 3.596,
+      "epsilon": 0.3662,
+      "loss": 0.012082,
+      "disaster": "停电"
+    },
+    {
+      "episode": 315,
+      "reward": 0.466,
+      "epsilon": 0.3645,
+      "loss": 0.012914,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 316,
+      "reward": 3.773,
+      "epsilon": 0.3628,
+      "loss": 0.009992,
+      "disaster": "地震"
+    },
+    {
+      "episode": 317,
+      "reward": -0.524,
+      "epsilon": 0.3611,
+      "loss": 0.014158,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 318,
+      "reward": -0.151,
+      "epsilon": 0.3594,
+      "loss": 0.0107,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 319,
+      "reward": 4.208,
+      "epsilon": 0.3577,
+      "loss": 0.011619,
+      "disaster": "大火"
+    },
+    {
+      "episode": 320,
+      "reward": 5.274,
+      "epsilon": 0.356,
+      "loss": 0.014797,
+      "disaster": "地震"
+    },
+    {
+      "episode": 321,
+      "reward": 0.443,
+      "epsilon": 0.3543,
+      "loss": 0.011211,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 322,
+      "reward": -0.223,
+      "epsilon": 0.3526,
+      "loss": 0.009123,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 323,
+      "reward": 2.976,
+      "epsilon": 0.3509,
+      "loss": 0.014225,
+      "disaster": "停电"
+    },
+    {
+      "episode": 324,
+      "reward": 4.84,
+      "epsilon": 0.3492,
+      "loss": 0.011993,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 325,
+      "reward": 4.262,
+      "epsilon": 0.3475,
+      "loss": 0.009561,
+      "disaster": "大火"
+    },
+    {
+      "episode": 326,
+      "reward": 3.57,
+      "epsilon": 0.3458,
+      "loss": 0.013364,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 327,
+      "reward": -0.157,
+      "epsilon": 0.3441,
+      "loss": 0.011545,
+      "disaster": "停电"
+    },
+    {
+      "episode": 328,
+      "reward": 0.048,
+      "epsilon": 0.3424,
+      "loss": 0.008661,
+      "disaster": "停电"
+    },
+    {
+      "episode": 329,
+      "reward": 3.428,
+      "epsilon": 0.3407,
+      "loss": 0.011831,
+      "disaster": "停电"
+    },
+    {
+      "episode": 330,
+      "reward": 3.46,
+      "epsilon": 0.339,
+      "loss": 0.00987,
+      "disaster": "地震"
+    },
+    {
+      "episode": 331,
+      "reward": -0.314,
+      "epsilon": 0.3373,
+      "loss": 0.011791,
+      "disaster": "停电"
+    },
+    {
+      "episode": 332,
+      "reward": 3.346,
+      "epsilon": 0.3356,
+      "loss": 0.012481,
+      "disaster": "大火"
+    },
+    {
+      "episode": 333,
+      "reward": 3.296,
+      "epsilon": 0.3339,
+      "loss": 0.011249,
+      "disaster": "大火"
+    },
+    {
+      "episode": 334,
+      "reward": 4.148,
+      "epsilon": 0.3322,
+      "loss": 0.013713,
+      "disaster": "大火"
+    },
+    {
+      "episode": 335,
+      "reward": -0.408,
+      "epsilon": 0.3305,
+      "loss": 0.011305,
+      "disaster": "地震"
+    },
+    {
+      "episode": 336,
+      "reward": 4.118,
+      "epsilon": 0.3288,
+      "loss": 0.016201,
+      "disaster": "地震"
+    },
+    {
+      "episode": 337,
+      "reward": 3.806,
+      "epsilon": 0.3271,
+      "loss": 0.01197,
+      "disaster": "停电"
+    },
+    {
+      "episode": 338,
+      "reward": -0.468,
+      "epsilon": 0.3254,
+      "loss": 0.014179,
+      "disaster": "停电"
+    },
+    {
+      "episode": 339,
+      "reward": -0.425,
+      "epsilon": 0.3237,
+      "loss": 0.014602,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 340,
+      "reward": -0.672,
+      "epsilon": 0.322,
+      "loss": 0.008414,
+      "disaster": "大火"
+    },
+    {
+      "episode": 341,
+      "reward": -0.609,
+      "epsilon": 0.3203,
+      "loss": 0.014667,
+      "disaster": "停电"
+    },
+    {
+      "episode": 342,
+      "reward": 3.191,
+      "epsilon": 0.3186,
+      "loss": 0.013193,
+      "disaster": "停电"
+    },
+    {
+      "episode": 343,
+      "reward": 0.067,
+      "epsilon": 0.3169,
+      "loss": 0.012177,
+      "disaster": "地震"
+    },
+    {
+      "episode": 344,
+      "reward": 3.483,
+      "epsilon": 0.3152,
+      "loss": 0.017528,
+      "disaster": "地震"
+    },
+    {
+      "episode": 345,
+      "reward": 3.89,
+      "epsilon": 0.3135,
+      "loss": 0.011318,
+      "disaster": "地震"
+    },
+    {
+      "episode": 346,
+      "reward": 3.767,
+      "epsilon": 0.3118,
+      "loss": 0.012333,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 347,
+      "reward": 4.784,
+      "epsilon": 0.3101,
+      "loss": 0.014096,
+      "disaster": "地震"
+    },
+    {
+      "episode": 348,
+      "reward": 3.609,
+      "epsilon": 0.3084,
+      "loss": 0.011958,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 349,
+      "reward": 2.927,
+      "epsilon": 0.3067,
+      "loss": 0.011875,
+      "disaster": "大火"
+    },
+    {
+      "episode": 350,
+      "reward": 3.584,
+      "epsilon": 0.305,
+      "loss": 0.010023,
+      "disaster": "大火"
+    },
+    {
+      "episode": 351,
+      "reward": 3.575,
+      "epsilon": 0.3033,
+      "loss": 0.010787,
+      "disaster": "大火"
+    },
+    {
+      "episode": 352,
+      "reward": 3.541,
+      "epsilon": 0.3016,
+      "loss": 0.011067,
+      "disaster": "大火"
+    },
+    {
+      "episode": 353,
+      "reward": -0.195,
+      "epsilon": 0.2999,
+      "loss": 0.013846,
+      "disaster": "停电"
+    },
+    {
+      "episode": 354,
+      "reward": 0.067,
+      "epsilon": 0.2982,
+      "loss": 0.014702,
+      "disaster": "停电"
+    },
+    {
+      "episode": 355,
+      "reward": -0.277,
+      "epsilon": 0.2965,
+      "loss": 0.01536,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 356,
+      "reward": 0.645,
+      "epsilon": 0.2948,
+      "loss": 0.010676,
+      "disaster": "地震"
+    },
+    {
+      "episode": 357,
+      "reward": 3.784,
+      "epsilon": 0.2931,
+      "loss": 0.010638,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 358,
+      "reward": 3.202,
+      "epsilon": 0.2914,
+      "loss": 0.016253,
+      "disaster": "地震"
+    },
+    {
+      "episode": 359,
+      "reward": -0.149,
+      "epsilon": 0.2897,
+      "loss": 0.010011,
+      "disaster": "大火"
+    },
+    {
+      "episode": 360,
+      "reward": 4.675,
+      "epsilon": 0.288,
+      "loss": 0.009223,
+      "disaster": "停电"
+    },
+    {
+      "episode": 361,
+      "reward": 0.094,
+      "epsilon": 0.2863,
+      "loss": 0.01153,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 362,
+      "reward": 4.459,
+      "epsilon": 0.2846,
+      "loss": 0.012666,
+      "disaster": "地震"
+    },
+    {
+      "episode": 363,
+      "reward": 3.325,
+      "epsilon": 0.2829,
+      "loss": 0.013253,
+      "disaster": "大火"
+    },
+    {
+      "episode": 364,
+      "reward": 3.374,
+      "epsilon": 0.2812,
+      "loss": 0.013986,
+      "disaster": "地震"
+    },
+    {
+      "episode": 365,
+      "reward": 0.087,
+      "epsilon": 0.2795,
+      "loss": 0.011939,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 366,
+      "reward": 3.82,
+      "epsilon": 0.2778,
+      "loss": 0.00922,
+      "disaster": "大火"
+    },
+    {
+      "episode": 367,
+      "reward": 3.41,
+      "epsilon": 0.2761,
+      "loss": 0.010613,
+      "disaster": "大火"
+    },
+    {
+      "episode": 368,
+      "reward": 0.152,
+      "epsilon": 0.2744,
+      "loss": 0.013552,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 369,
+      "reward": 3.852,
+      "epsilon": 0.2727,
+      "loss": 0.010508,
+      "disaster": "大火"
+    },
+    {
+      "episode": 370,
+      "reward": 2.819,
+      "epsilon": 0.271,
+      "loss": 0.012229,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 371,
+      "reward": -0.635,
+      "epsilon": 0.2693,
+      "loss": 0.013496,
+      "disaster": "大火"
+    },
+    {
+      "episode": 372,
+      "reward": 4.037,
+      "epsilon": 0.2676,
+      "loss": 0.012524,
+      "disaster": "地震"
+    },
+    {
+      "episode": 373,
+      "reward": 5.037,
+      "epsilon": 0.2659,
+      "loss": 0.01238,
+      "disaster": "地震"
+    },
+    {
+      "episode": 374,
+      "reward": -0.35,
+      "epsilon": 0.2642,
+      "loss": 0.010403,
+      "disaster": "停电"
+    },
+    {
+      "episode": 375,
+      "reward": 3.963,
+      "epsilon": 0.2625,
+      "loss": 0.013087,
+      "disaster": "地震"
+    },
+    {
+      "episode": 376,
+      "reward": 3.868,
+      "epsilon": 0.2608,
+      "loss": 0.012849,
+      "disaster": "停电"
+    },
+    {
+      "episode": 377,
+      "reward": 3.935,
+      "epsilon": 0.2591,
+      "loss": 0.011985,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 378,
+      "reward": 3.836,
+      "epsilon": 0.2574,
+      "loss": 0.011335,
+      "disaster": "大火"
+    },
+    {
+      "episode": 379,
+      "reward": 3.8,
+      "epsilon": 0.2557,
+      "loss": 0.011768,
+      "disaster": "停电"
+    },
+    {
+      "episode": 380,
+      "reward": 4.166,
+      "epsilon": 0.254,
+      "loss": 0.012218,
+      "disaster": "大火"
+    },
+    {
+      "episode": 381,
+      "reward": -0.613,
+      "epsilon": 0.2523,
+      "loss": 0.012094,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 382,
+      "reward": 4.309,
+      "epsilon": 0.2506,
+      "loss": 0.009923,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 383,
+      "reward": 4.19,
+      "epsilon": 0.2489,
+      "loss": 0.016437,
+      "disaster": "地震"
+    },
+    {
+      "episode": 384,
+      "reward": 4.26,
+      "epsilon": 0.2472,
+      "loss": 0.010584,
+      "disaster": "地震"
+    },
+    {
+      "episode": 385,
+      "reward": -0.267,
+      "epsilon": 0.2455,
+      "loss": 0.012375,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 386,
+      "reward": 3.144,
+      "epsilon": 0.2438,
+      "loss": 0.010158,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 387,
+      "reward": 3.929,
+      "epsilon": 0.2421,
+      "loss": 0.014257,
+      "disaster": "地震"
+    },
+    {
+      "episode": 388,
+      "reward": 3.504,
+      "epsilon": 0.2404,
+      "loss": 0.01191,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 389,
+      "reward": 3.388,
+      "epsilon": 0.2387,
+      "loss": 0.010045,
+      "disaster": "停电"
+    },
+    {
+      "episode": 390,
+      "reward": 4.082,
+      "epsilon": 0.237,
+      "loss": 0.010469,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 391,
+      "reward": 3.391,
+      "epsilon": 0.2353,
+      "loss": 0.01167,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 392,
+      "reward": 4.324,
+      "epsilon": 0.2336,
+      "loss": 0.011821,
+      "disaster": "地震"
+    },
+    {
+      "episode": 393,
+      "reward": 3.718,
+      "epsilon": 0.2319,
+      "loss": 0.014061,
+      "disaster": "大火"
+    },
+    {
+      "episode": 394,
+      "reward": 3.267,
+      "epsilon": 0.2302,
+      "loss": 0.012215,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 395,
+      "reward": -1.029,
+      "epsilon": 0.2285,
+      "loss": 0.011737,
+      "disaster": "大火"
+    },
+    {
+      "episode": 396,
+      "reward": 3.888,
+      "epsilon": 0.2268,
+      "loss": 0.011028,
+      "disaster": "停电"
+    },
+    {
+      "episode": 397,
+      "reward": -0.178,
+      "epsilon": 0.2251,
+      "loss": 0.010511,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 398,
+      "reward": 0.194,
+      "epsilon": 0.2234,
+      "loss": 0.010491,
+      "disaster": "地震"
+    },
+    {
+      "episode": 399,
+      "reward": 4.35,
+      "epsilon": 0.2217,
+      "loss": 0.011891,
+      "disaster": "地震"
+    },
+    {
+      "episode": 400,
+      "reward": 4.895,
+      "epsilon": 0.22,
+      "loss": 0.011035,
+      "disaster": "地震"
+    },
+    {
+      "episode": 401,
+      "reward": 3.88,
+      "epsilon": 0.2183,
+      "loss": 0.009278,
+      "disaster": "地震"
+    },
+    {
+      "episode": 402,
+      "reward": 3.637,
+      "epsilon": 0.2166,
+      "loss": 0.008714,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 403,
+      "reward": 4.688,
+      "epsilon": 0.2149,
+      "loss": 0.012853,
+      "disaster": "大火"
+    },
+    {
+      "episode": 404,
+      "reward": 5.056,
+      "epsilon": 0.2132,
+      "loss": 0.01387,
+      "disaster": "地震"
+    },
+    {
+      "episode": 405,
+      "reward": -0.294,
+      "epsilon": 0.2115,
+      "loss": 0.012928,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 406,
+      "reward": 0.23,
+      "epsilon": 0.2098,
+      "loss": 0.012243,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 407,
+      "reward": 0.405,
+      "epsilon": 0.2081,
+      "loss": 0.014411,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 408,
+      "reward": 0.281,
+      "epsilon": 0.2064,
+      "loss": 0.011944,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 409,
+      "reward": 4.757,
+      "epsilon": 0.2047,
+      "loss": 0.011879,
+      "disaster": "地震"
+    },
+    {
+      "episode": 410,
+      "reward": 3.868,
+      "epsilon": 0.203,
+      "loss": 0.010795,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 411,
+      "reward": 0.684,
+      "epsilon": 0.2013,
+      "loss": 0.011837,
+      "disaster": "地震"
+    },
+    {
+      "episode": 412,
+      "reward": 4.235,
+      "epsilon": 0.1996,
+      "loss": 0.015306,
+      "disaster": "地震"
+    },
+    {
+      "episode": 413,
+      "reward": 0.292,
+      "epsilon": 0.1979,
+      "loss": 0.013552,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 414,
+      "reward": 4.486,
+      "epsilon": 0.1962,
+      "loss": 0.011954,
+      "disaster": "地震"
+    },
+    {
+      "episode": 415,
+      "reward": 4.008,
+      "epsilon": 0.1945,
+      "loss": 0.013035,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 416,
+      "reward": -0.066,
+      "epsilon": 0.1928,
+      "loss": 0.009711,
+      "disaster": "地震"
+    },
+    {
+      "episode": 417,
+      "reward": 4.782,
+      "epsilon": 0.1911,
+      "loss": 0.009774,
+      "disaster": "停电"
+    },
+    {
+      "episode": 418,
+      "reward": 0.137,
+      "epsilon": 0.1894,
+      "loss": 0.009827,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 419,
+      "reward": 3.557,
+      "epsilon": 0.1877,
+      "loss": 0.009371,
+      "disaster": "停电"
+    },
+    {
+      "episode": 420,
+      "reward": 4.189,
+      "epsilon": 0.186,
+      "loss": 0.014981,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 421,
+      "reward": 4.736,
+      "epsilon": 0.1843,
+      "loss": 0.012689,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 422,
+      "reward": 4.269,
+      "epsilon": 0.1826,
+      "loss": 0.011624,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 423,
+      "reward": 3.77,
+      "epsilon": 0.1809,
+      "loss": 0.016323,
+      "disaster": "地震"
+    },
+    {
+      "episode": 424,
+      "reward": 3.82,
+      "epsilon": 0.1792,
+      "loss": 0.009352,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 425,
+      "reward": 3.717,
+      "epsilon": 0.1775,
+      "loss": 0.01032,
+      "disaster": "大火"
+    },
+    {
+      "episode": 426,
+      "reward": 4.01,
+      "epsilon": 0.1758,
+      "loss": 0.009576,
+      "disaster": "地震"
+    },
+    {
+      "episode": 427,
+      "reward": 4.094,
+      "epsilon": 0.1741,
+      "loss": 0.013533,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 428,
+      "reward": 3.057,
+      "epsilon": 0.1724,
+      "loss": 0.013292,
+      "disaster": "大火"
+    },
+    {
+      "episode": 429,
+      "reward": 0.515,
+      "epsilon": 0.1707,
+      "loss": 0.010838,
+      "disaster": "停电"
+    },
+    {
+      "episode": 430,
+      "reward": 0.899,
+      "epsilon": 0.169,
+      "loss": 0.009644,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 431,
+      "reward": 3.484,
+      "epsilon": 0.1673,
+      "loss": 0.009938,
+      "disaster": "大火"
+    },
+    {
+      "episode": 432,
+      "reward": -0.352,
+      "epsilon": 0.1656,
+      "loss": 0.009969,
+      "disaster": "大火"
+    },
+    {
+      "episode": 433,
+      "reward": 4.444,
+      "epsilon": 0.1639,
+      "loss": 0.012975,
+      "disaster": "停电"
+    },
+    {
+      "episode": 434,
+      "reward": 0.272,
+      "epsilon": 0.1622,
+      "loss": 0.014459,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 435,
+      "reward": -0.378,
+      "epsilon": 0.1605,
+      "loss": 0.01537,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 436,
+      "reward": -0.383,
+      "epsilon": 0.1588,
+      "loss": 0.012696,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 437,
+      "reward": 3.984,
+      "epsilon": 0.1571,
+      "loss": 0.01048,
+      "disaster": "地震"
+    },
+    {
+      "episode": 438,
+      "reward": -0.668,
+      "epsilon": 0.1554,
+      "loss": 0.011876,
+      "disaster": "停电"
+    },
+    {
+      "episode": 439,
+      "reward": 4.358,
+      "epsilon": 0.1537,
+      "loss": 0.012232,
+      "disaster": "停电"
+    },
+    {
+      "episode": 440,
+      "reward": 3.424,
+      "epsilon": 0.152,
+      "loss": 0.015348,
+      "disaster": "地震"
+    },
+    {
+      "episode": 441,
+      "reward": 3.508,
+      "epsilon": 0.1503,
+      "loss": 0.012395,
+      "disaster": "大火"
+    },
+    {
+      "episode": 442,
+      "reward": 0.27,
+      "epsilon": 0.1486,
+      "loss": 0.011268,
+      "disaster": "地震"
+    },
+    {
+      "episode": 443,
+      "reward": -0.122,
+      "epsilon": 0.1469,
+      "loss": 0.011273,
+      "disaster": "停电"
+    },
+    {
+      "episode": 444,
+      "reward": 3.568,
+      "epsilon": 0.1452,
+      "loss": 0.009296,
+      "disaster": "大火"
+    },
+    {
+      "episode": 445,
+      "reward": 2.805,
+      "epsilon": 0.1435,
+      "loss": 0.008094,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 446,
+      "reward": -0.179,
+      "epsilon": 0.1418,
+      "loss": 0.01129,
+      "disaster": "停电"
+    },
+    {
+      "episode": 447,
+      "reward": 4.859,
+      "epsilon": 0.1401,
+      "loss": 0.01289,
+      "disaster": "地震"
+    },
+    {
+      "episode": 448,
+      "reward": 3.717,
+      "epsilon": 0.1384,
+      "loss": 0.01284,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 449,
+      "reward": 0.347,
+      "epsilon": 0.1367,
+      "loss": 0.009078,
+      "disaster": "地震"
+    },
+    {
+      "episode": 450,
+      "reward": 3.711,
+      "epsilon": 0.135,
+      "loss": 0.008658,
+      "disaster": "地震"
+    },
+    {
+      "episode": 451,
+      "reward": -0.589,
+      "epsilon": 0.1333,
+      "loss": 0.014189,
+      "disaster": "停电"
+    },
+    {
+      "episode": 452,
+      "reward": 0.144,
+      "epsilon": 0.1316,
+      "loss": 0.011882,
+      "disaster": "停电"
+    },
+    {
+      "episode": 453,
+      "reward": 0.02,
+      "epsilon": 0.1299,
+      "loss": 0.013121,
+      "disaster": "停电"
+    },
+    {
+      "episode": 454,
+      "reward": -0.252,
+      "epsilon": 0.1282,
+      "loss": 0.013727,
+      "disaster": "地震"
+    },
+    {
+      "episode": 455,
+      "reward": 4.229,
+      "epsilon": 0.1265,
+      "loss": 0.012689,
+      "disaster": "停电"
+    },
+    {
+      "episode": 456,
+      "reward": 4.494,
+      "epsilon": 0.1248,
+      "loss": 0.012024,
+      "disaster": "停电"
+    },
+    {
+      "episode": 457,
+      "reward": 5.341,
+      "epsilon": 0.1231,
+      "loss": 0.010543,
+      "disaster": "地震"
+    },
+    {
+      "episode": 458,
+      "reward": 4.679,
+      "epsilon": 0.1214,
+      "loss": 0.012269,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 459,
+      "reward": 3.673,
+      "epsilon": 0.1197,
+      "loss": 0.013836,
+      "disaster": "停电"
+    },
+    {
+      "episode": 460,
+      "reward": -0.494,
+      "epsilon": 0.118,
+      "loss": 0.013538,
+      "disaster": "大火"
+    },
+    {
+      "episode": 461,
+      "reward": -0.39,
+      "epsilon": 0.1163,
+      "loss": 0.009777,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 462,
+      "reward": 4.129,
+      "epsilon": 0.1146,
+      "loss": 0.009773,
+      "disaster": "地震"
+    },
+    {
+      "episode": 463,
+      "reward": 3.625,
+      "epsilon": 0.1129,
+      "loss": 0.013329,
+      "disaster": "地震"
+    },
+    {
+      "episode": 464,
+      "reward": 4.226,
+      "epsilon": 0.1112,
+      "loss": 0.01286,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 465,
+      "reward": 3.752,
+      "epsilon": 0.1095,
+      "loss": 0.009571,
+      "disaster": "大火"
+    },
+    {
+      "episode": 466,
+      "reward": 4.413,
+      "epsilon": 0.1078,
+      "loss": 0.012843,
+      "disaster": "停电"
+    },
+    {
+      "episode": 467,
+      "reward": 0.016,
+      "epsilon": 0.1061,
+      "loss": 0.011558,
+      "disaster": "停电"
+    },
+    {
+      "episode": 468,
+      "reward": 5.78,
+      "epsilon": 0.1044,
+      "loss": 0.01244,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 469,
+      "reward": -0.089,
+      "epsilon": 0.1027,
+      "loss": 0.00937,
+      "disaster": "停电"
+    },
+    {
+      "episode": 470,
+      "reward": -0.684,
+      "epsilon": 0.101,
+      "loss": 0.008578,
+      "disaster": "停电"
+    },
+    {
+      "episode": 471,
+      "reward": 0.036,
+      "epsilon": 0.0993,
+      "loss": 0.010939,
+      "disaster": "停电"
+    },
+    {
+      "episode": 472,
+      "reward": -0.755,
+      "epsilon": 0.0976,
+      "loss": 0.011461,
+      "disaster": "大火"
+    },
+    {
+      "episode": 473,
+      "reward": 5.088,
+      "epsilon": 0.0959,
+      "loss": 0.007723,
+      "disaster": "地震"
+    },
+    {
+      "episode": 474,
+      "reward": -0.101,
+      "epsilon": 0.0942,
+      "loss": 0.010545,
+      "disaster": "停电"
+    },
+    {
+      "episode": 475,
+      "reward": 3.609,
+      "epsilon": 0.0925,
+      "loss": 0.01074,
+      "disaster": "地震"
+    },
+    {
+      "episode": 476,
+      "reward": 4.248,
+      "epsilon": 0.0908,
+      "loss": 0.014422,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 477,
+      "reward": 3.526,
+      "epsilon": 0.0891,
+      "loss": 0.011987,
+      "disaster": "地震"
+    },
+    {
+      "episode": 478,
+      "reward": -0.47,
+      "epsilon": 0.0874,
+      "loss": 0.011662,
+      "disaster": "停电"
+    },
+    {
+      "episode": 479,
+      "reward": 4.698,
+      "epsilon": 0.0857,
+      "loss": 0.014037,
+      "disaster": "地震"
+    },
+    {
+      "episode": 480,
+      "reward": -0.216,
+      "epsilon": 0.084,
+      "loss": 0.011424,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 481,
+      "reward": 0.474,
+      "epsilon": 0.0823,
+      "loss": 0.012632,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 482,
+      "reward": 0.471,
+      "epsilon": 0.0806,
+      "loss": 0.011528,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 483,
+      "reward": -0.635,
+      "epsilon": 0.0789,
+      "loss": 0.009949,
+      "disaster": "停电"
+    },
+    {
+      "episode": 484,
+      "reward": 4.022,
+      "epsilon": 0.0772,
+      "loss": 0.014813,
+      "disaster": "地震"
+    },
+    {
+      "episode": 485,
+      "reward": 0.104,
+      "epsilon": 0.0755,
+      "loss": 0.013182,
+      "disaster": "停电"
+    },
+    {
+      "episode": 486,
+      "reward": 3.586,
+      "epsilon": 0.0738,
+      "loss": 0.01343,
+      "disaster": "大火"
+    },
+    {
+      "episode": 487,
+      "reward": 0.765,
+      "epsilon": 0.0721,
+      "loss": 0.009465,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 488,
+      "reward": 3.56,
+      "epsilon": 0.0704,
+      "loss": 0.009021,
+      "disaster": "大火"
+    },
+    {
+      "episode": 489,
+      "reward": 3.861,
+      "epsilon": 0.0687,
+      "loss": 0.00948,
+      "disaster": "地震"
+    },
+    {
+      "episode": 490,
+      "reward": 3.928,
+      "epsilon": 0.067,
+      "loss": 0.011138,
+      "disaster": "大火"
+    },
+    {
+      "episode": 491,
+      "reward": 3.442,
+      "epsilon": 0.0653,
+      "loss": 0.00851,
+      "disaster": "停电"
+    },
+    {
+      "episode": 492,
+      "reward": -0.867,
+      "epsilon": 0.0636,
+      "loss": 0.012717,
+      "disaster": "大火"
+    },
+    {
+      "episode": 493,
+      "reward": 4.109,
+      "epsilon": 0.0619,
+      "loss": 0.011771,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 494,
+      "reward": -0.274,
+      "epsilon": 0.0602,
+      "loss": 0.015549,
+      "disaster": "大火"
+    },
+    {
+      "episode": 495,
+      "reward": -0.425,
+      "epsilon": 0.0585,
+      "loss": 0.010568,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 496,
+      "reward": 0.049,
+      "epsilon": 0.0568,
+      "loss": 0.011627,
+      "disaster": "停电"
+    },
+    {
+      "episode": 497,
+      "reward": 0.14,
+      "epsilon": 0.0551,
+      "loss": 0.014161,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 498,
+      "reward": 4.327,
+      "epsilon": 0.0534,
+      "loss": 0.016003,
+      "disaster": "地震"
+    },
+    {
+      "episode": 499,
+      "reward": 3.301,
+      "epsilon": 0.0517,
+      "loss": 0.015902,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 500,
+      "reward": 3.25,
+      "epsilon": 0.05,
+      "loss": 0.009755,
+      "disaster": "大火"
+    },
+    {
+      "episode": 501,
+      "reward": -0.399,
+      "epsilon": 0.05,
+      "loss": 0.010302,
+      "disaster": "停电"
+    },
+    {
+      "episode": 502,
+      "reward": 3.5,
+      "epsilon": 0.05,
+      "loss": 0.009794,
+      "disaster": "大火"
+    },
+    {
+      "episode": 503,
+      "reward": -0.438,
+      "epsilon": 0.05,
+      "loss": 0.010034,
+      "disaster": "停电"
+    },
+    {
+      "episode": 504,
+      "reward": 4.043,
+      "epsilon": 0.05,
+      "loss": 0.009609,
+      "disaster": "大火"
+    },
+    {
+      "episode": 505,
+      "reward": 3.453,
+      "epsilon": 0.05,
+      "loss": 0.010862,
+      "disaster": "地震"
+    },
+    {
+      "episode": 506,
+      "reward": 0.054,
+      "epsilon": 0.05,
+      "loss": 0.01441,
+      "disaster": "停电"
+    },
+    {
+      "episode": 507,
+      "reward": 0.347,
+      "epsilon": 0.05,
+      "loss": 0.010835,
+      "disaster": "地震"
+    },
+    {
+      "episode": 508,
+      "reward": 0.105,
+      "epsilon": 0.05,
+      "loss": 0.009212,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 509,
+      "reward": 0.318,
+      "epsilon": 0.05,
+      "loss": 0.011878,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 510,
+      "reward": 0.014,
+      "epsilon": 0.05,
+      "loss": 0.010487,
+      "disaster": "停电"
+    },
+    {
+      "episode": 511,
+      "reward": 4.3,
+      "epsilon": 0.05,
+      "loss": 0.012106,
+      "disaster": "大火"
+    },
+    {
+      "episode": 512,
+      "reward": 3.395,
+      "epsilon": 0.05,
+      "loss": 0.010952,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 513,
+      "reward": 4.726,
+      "epsilon": 0.05,
+      "loss": 0.011212,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 514,
+      "reward": 3.633,
+      "epsilon": 0.05,
+      "loss": 0.00974,
+      "disaster": "大火"
+    },
+    {
+      "episode": 515,
+      "reward": 0.16,
+      "epsilon": 0.05,
+      "loss": 0.010443,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 516,
+      "reward": 3.598,
+      "epsilon": 0.05,
+      "loss": 0.010146,
+      "disaster": "大火"
+    },
+    {
+      "episode": 517,
+      "reward": 4.676,
+      "epsilon": 0.05,
+      "loss": 0.011153,
+      "disaster": "地震"
+    },
+    {
+      "episode": 518,
+      "reward": 0.38,
+      "epsilon": 0.05,
+      "loss": 0.01077,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 519,
+      "reward": 3.897,
+      "epsilon": 0.05,
+      "loss": 0.013062,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 520,
+      "reward": 3.11,
+      "epsilon": 0.05,
+      "loss": 0.010984,
+      "disaster": "地震"
+    },
+    {
+      "episode": 521,
+      "reward": 3.68,
+      "epsilon": 0.05,
+      "loss": 0.010705,
+      "disaster": "大火"
+    },
+    {
+      "episode": 522,
+      "reward": 4.273,
+      "epsilon": 0.05,
+      "loss": 0.008715,
+      "disaster": "大火"
+    },
+    {
+      "episode": 523,
+      "reward": -0.367,
+      "epsilon": 0.05,
+      "loss": 0.009809,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 524,
+      "reward": -0.109,
+      "epsilon": 0.05,
+      "loss": 0.011166,
+      "disaster": "停电"
+    },
+    {
+      "episode": 525,
+      "reward": 0.435,
+      "epsilon": 0.05,
+      "loss": 0.012089,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 526,
+      "reward": 0.461,
+      "epsilon": 0.05,
+      "loss": 0.009758,
+      "disaster": "地震"
+    },
+    {
+      "episode": 527,
+      "reward": -0.701,
+      "epsilon": 0.05,
+      "loss": 0.010447,
+      "disaster": "地震"
+    },
+    {
+      "episode": 528,
+      "reward": 4.001,
+      "epsilon": 0.05,
+      "loss": 0.011769,
+      "disaster": "停电"
+    },
+    {
+      "episode": 529,
+      "reward": -0.422,
+      "epsilon": 0.05,
+      "loss": 0.011238,
+      "disaster": "停电"
+    },
+    {
+      "episode": 530,
+      "reward": 0.217,
+      "epsilon": 0.05,
+      "loss": 0.00987,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 531,
+      "reward": 4.452,
+      "epsilon": 0.05,
+      "loss": 0.013696,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 532,
+      "reward": -0.376,
+      "epsilon": 0.05,
+      "loss": 0.01207,
+      "disaster": "地震"
+    },
+    {
+      "episode": 533,
+      "reward": 4.587,
+      "epsilon": 0.05,
+      "loss": 0.011329,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 534,
+      "reward": -0.054,
+      "epsilon": 0.05,
+      "loss": 0.010673,
+      "disaster": "大火"
+    },
+    {
+      "episode": 535,
+      "reward": 4.593,
+      "epsilon": 0.05,
+      "loss": 0.015533,
+      "disaster": "大火"
+    },
+    {
+      "episode": 536,
+      "reward": -0.26,
+      "epsilon": 0.05,
+      "loss": 0.011213,
+      "disaster": "停电"
+    },
+    {
+      "episode": 537,
+      "reward": 0.27,
+      "epsilon": 0.05,
+      "loss": 0.009264,
+      "disaster": "停电"
+    },
+    {
+      "episode": 538,
+      "reward": 3.881,
+      "epsilon": 0.05,
+      "loss": 0.012233,
+      "disaster": "大火"
+    },
+    {
+      "episode": 539,
+      "reward": -0.195,
+      "epsilon": 0.05,
+      "loss": 0.011052,
+      "disaster": "停电"
+    },
+    {
+      "episode": 540,
+      "reward": -0.022,
+      "epsilon": 0.05,
+      "loss": 0.010695,
+      "disaster": "大火"
+    },
+    {
+      "episode": 541,
+      "reward": 3.23,
+      "epsilon": 0.05,
+      "loss": 0.010306,
+      "disaster": "大火"
+    },
+    {
+      "episode": 542,
+      "reward": 0.035,
+      "epsilon": 0.05,
+      "loss": 0.011816,
+      "disaster": "停电"
+    },
+    {
+      "episode": 543,
+      "reward": 3.154,
+      "epsilon": 0.05,
+      "loss": 0.01171,
+      "disaster": "大火"
+    },
+    {
+      "episode": 544,
+      "reward": -0.021,
+      "epsilon": 0.05,
+      "loss": 0.010125,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 545,
+      "reward": -0.178,
+      "epsilon": 0.05,
+      "loss": 0.010145,
+      "disaster": "停电"
+    },
+    {
+      "episode": 546,
+      "reward": 0.074,
+      "epsilon": 0.05,
+      "loss": 0.011637,
+      "disaster": "停电"
+    },
+    {
+      "episode": 547,
+      "reward": 4.55,
+      "epsilon": 0.05,
+      "loss": 0.011212,
+      "disaster": "地震"
+    },
+    {
+      "episode": 548,
+      "reward": 4.314,
+      "epsilon": 0.05,
+      "loss": 0.01155,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 549,
+      "reward": 3.602,
+      "epsilon": 0.05,
+      "loss": 0.011366,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 550,
+      "reward": 3.752,
+      "epsilon": 0.05,
+      "loss": 0.011729,
+      "disaster": "地震"
+    },
+    {
+      "episode": 551,
+      "reward": 4.527,
+      "epsilon": 0.05,
+      "loss": 0.011417,
+      "disaster": "地震"
+    },
+    {
+      "episode": 552,
+      "reward": 0.039,
+      "epsilon": 0.05,
+      "loss": 0.010816,
+      "disaster": "停电"
+    },
+    {
+      "episode": 553,
+      "reward": 0.501,
+      "epsilon": 0.05,
+      "loss": 0.012496,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 554,
+      "reward": -0.396,
+      "epsilon": 0.05,
+      "loss": 0.011462,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 555,
+      "reward": 0.026,
+      "epsilon": 0.05,
+      "loss": 0.012989,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 556,
+      "reward": 4.201,
+      "epsilon": 0.05,
+      "loss": 0.010469,
+      "disaster": "地震"
+    },
+    {
+      "episode": 557,
+      "reward": -0.819,
+      "epsilon": 0.05,
+      "loss": 0.010417,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 558,
+      "reward": 4.463,
+      "epsilon": 0.05,
+      "loss": 0.010399,
+      "disaster": "停电"
+    },
+    {
+      "episode": 559,
+      "reward": -0.171,
+      "epsilon": 0.05,
+      "loss": 0.014624,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 560,
+      "reward": 4.099,
+      "epsilon": 0.05,
+      "loss": 0.013161,
+      "disaster": "大火"
+    },
+    {
+      "episode": 561,
+      "reward": 4.43,
+      "epsilon": 0.05,
+      "loss": 0.011964,
+      "disaster": "地震"
+    },
+    {
+      "episode": 562,
+      "reward": 0.53,
+      "epsilon": 0.05,
+      "loss": 0.014398,
+      "disaster": "停电"
+    },
+    {
+      "episode": 563,
+      "reward": 3.284,
+      "epsilon": 0.05,
+      "loss": 0.012141,
+      "disaster": "地震"
+    },
+    {
+      "episode": 564,
+      "reward": 0.242,
+      "epsilon": 0.05,
+      "loss": 0.013599,
+      "disaster": "停电"
+    },
+    {
+      "episode": 565,
+      "reward": 4.48,
+      "epsilon": 0.05,
+      "loss": 0.012222,
+      "disaster": "大火"
+    },
+    {
+      "episode": 566,
+      "reward": 2.858,
+      "epsilon": 0.05,
+      "loss": 0.015053,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 567,
+      "reward": 4.438,
+      "epsilon": 0.05,
+      "loss": 0.010153,
+      "disaster": "地震"
+    },
+    {
+      "episode": 568,
+      "reward": 3.982,
+      "epsilon": 0.05,
+      "loss": 0.012001,
+      "disaster": "大火"
+    },
+    {
+      "episode": 569,
+      "reward": 4.833,
+      "epsilon": 0.05,
+      "loss": 0.012246,
+      "disaster": "地震"
+    },
+    {
+      "episode": 570,
+      "reward": 4.258,
+      "epsilon": 0.05,
+      "loss": 0.015288,
+      "disaster": "地震"
+    },
+    {
+      "episode": 571,
+      "reward": -0.038,
+      "epsilon": 0.05,
+      "loss": 0.01174,
+      "disaster": "停电"
+    },
+    {
+      "episode": 572,
+      "reward": 3.87,
+      "epsilon": 0.05,
+      "loss": 0.010182,
+      "disaster": "地震"
+    },
+    {
+      "episode": 573,
+      "reward": 3.17,
+      "epsilon": 0.05,
+      "loss": 0.012889,
+      "disaster": "大火"
+    },
+    {
+      "episode": 574,
+      "reward": 3.471,
+      "epsilon": 0.05,
+      "loss": 0.011617,
+      "disaster": "大火"
+    },
+    {
+      "episode": 575,
+      "reward": 4.332,
+      "epsilon": 0.05,
+      "loss": 0.011712,
+      "disaster": "地震"
+    },
+    {
+      "episode": 576,
+      "reward": -0.291,
+      "epsilon": 0.05,
+      "loss": 0.014245,
+      "disaster": "停电"
+    },
+    {
+      "episode": 577,
+      "reward": -0.381,
+      "epsilon": 0.05,
+      "loss": 0.009937,
+      "disaster": "停电"
+    },
+    {
+      "episode": 578,
+      "reward": 3.917,
+      "epsilon": 0.05,
+      "loss": 0.011294,
+      "disaster": "地震"
+    },
+    {
+      "episode": 579,
+      "reward": 2.922,
+      "epsilon": 0.05,
+      "loss": 0.012679,
+      "disaster": "大火"
+    },
+    {
+      "episode": 580,
+      "reward": 2.97,
+      "epsilon": 0.05,
+      "loss": 0.010041,
+      "disaster": "大火"
+    },
+    {
+      "episode": 581,
+      "reward": 4.279,
+      "epsilon": 0.05,
+      "loss": 0.013412,
+      "disaster": "地震"
+    },
+    {
+      "episode": 582,
+      "reward": 0.179,
+      "epsilon": 0.05,
+      "loss": 0.010776,
+      "disaster": "停电"
+    },
+    {
+      "episode": 583,
+      "reward": 0.33,
+      "epsilon": 0.05,
+      "loss": 0.010612,
+      "disaster": "停电"
+    },
+    {
+      "episode": 584,
+      "reward": 5.124,
+      "epsilon": 0.05,
+      "loss": 0.011986,
+      "disaster": "地震"
+    },
+    {
+      "episode": 585,
+      "reward": 0.828,
+      "epsilon": 0.05,
+      "loss": 0.013356,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 586,
+      "reward": 3.713,
+      "epsilon": 0.05,
+      "loss": 0.01244,
+      "disaster": "大火"
+    },
+    {
+      "episode": 587,
+      "reward": 4.109,
+      "epsilon": 0.05,
+      "loss": 0.010138,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 588,
+      "reward": 3.946,
+      "epsilon": 0.05,
+      "loss": 0.011894,
+      "disaster": "地震"
+    },
+    {
+      "episode": 589,
+      "reward": 4.489,
+      "epsilon": 0.05,
+      "loss": 0.009567,
+      "disaster": "地震"
+    },
+    {
+      "episode": 590,
+      "reward": 4.856,
+      "epsilon": 0.05,
+      "loss": 0.010649,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 591,
+      "reward": -0.364,
+      "epsilon": 0.05,
+      "loss": 0.010321,
+      "disaster": "停电"
+    },
+    {
+      "episode": 592,
+      "reward": -0.766,
+      "epsilon": 0.05,
+      "loss": 0.015666,
+      "disaster": "停电"
+    },
+    {
+      "episode": 593,
+      "reward": 3.747,
+      "epsilon": 0.05,
+      "loss": 0.011106,
+      "disaster": "停电"
+    },
+    {
+      "episode": 594,
+      "reward": 0.236,
+      "epsilon": 0.05,
+      "loss": 0.011768,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 595,
+      "reward": 4.195,
+      "epsilon": 0.05,
+      "loss": 0.01092,
+      "disaster": "地震"
+    },
+    {
+      "episode": 596,
+      "reward": 2.764,
+      "epsilon": 0.05,
+      "loss": 0.011956,
+      "disaster": "大火"
+    },
+    {
+      "episode": 597,
+      "reward": -0.588,
+      "epsilon": 0.05,
+      "loss": 0.010889,
+      "disaster": "停电"
+    },
+    {
+      "episode": 598,
+      "reward": 0.861,
+      "epsilon": 0.05,
+      "loss": 0.010085,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 599,
+      "reward": 0.099,
+      "epsilon": 0.05,
+      "loss": 0.012207,
+      "disaster": "洪涝"
+    },
+    {
+      "episode": 600,
+      "reward": 0.164,
+      "epsilon": 0.05,
+      "loss": 0.012417,
+      "disaster": "洪涝"
+    }
+  ],
+  "test_results": [
+    {
+      "episode": 1,
+      "reward": 3.72,
+      "weather": "暴雨",
+      "disaster": "大火",
+      "n_supply_actions": 4,
+      "supply_distribution": {
+        "站点6(综合站)": 4
+      }
+    },
+    {
+      "episode": 2,
+      "reward": 3.142,
+      "weather": "暴雨",
+      "disaster": "地震",
+      "n_supply_actions": 15,
+      "supply_distribution": {
+        "站点6(综合站)": 15
+      }
+    },
+    {
+      "episode": 3,
+      "reward": -0.021,
+      "weather": "暴雨",
+      "disaster": "洪涝",
+      "n_supply_actions": 6,
+      "supply_distribution": {
+        "站点13(枢纽站)": 6
+      }
+    },
+    {
+      "episode": 4,
+      "reward": 3.337,
+      "weather": "强风",
+      "disaster": "大火",
+      "n_supply_actions": 15,
+      "supply_distribution": {
+        "站点2(枢纽站)": 6,
+        "站点13(枢纽站)": 1,
+        "站点6(综合站)": 8
+      }
+    },
+    {
+      "episode": 5,
+      "reward": 4.586,
+      "weather": "晴好",
+      "disaster": "洪涝",
+      "n_supply_actions": 14,
+      "supply_distribution": {
+        "站点2(枢纽站)": 14
+      }
+    },
+    {
+      "episode": 6,
+      "reward": 3.339,
+      "weather": "暴雨",
+      "disaster": "大火",
+      "n_supply_actions": 12,
+      "supply_distribution": {
+        "站点13(枢纽站)": 12
+      }
+    },
+    {
+      "episode": 7,
+      "reward": 3.205,
+      "weather": "强风",
+      "disaster": "地震",
+      "n_supply_actions": 19,
+      "supply_distribution": {
+        "站点14(综合站)": 19
+      }
+    },
+    {
+      "episode": 8,
+      "reward": -0.378,
+      "weather": "晴好",
+      "disaster": "停电",
+      "n_supply_actions": 23,
+      "supply_distribution": {
+        "站点2(枢纽站)": 7,
+        "站点5(综合站)": 16
+      }
+    },
+    {
+      "episode": 9,
+      "reward": 3.137,
+      "weather": "暴雨",
+      "disaster": "洪涝",
+      "n_supply_actions": 17,
+      "supply_distribution": {
+        "站点12(综合站)": 13,
+        "站点6(综合站)": 4
+      }
+    },
+    {
+      "episode": 10,
+      "reward": 4.983,
+      "weather": "晴好",
+      "disaster": "地震",
+      "n_supply_actions": 12,
+      "supply_distribution": {
+        "站点1(综合站)": 6,
+        "站点5(综合站)": 6
+      }
+    }
+  ],
+  "best_reward": 5.779705521472395,
+  "hyperparams": {
+    "n_episodes": 600,
+    "max_steps": 24,
+    "lr": 0.0005,
+    "gamma": 0.95,
+    "h1": 64,
+    "h2": 32,
+    "epsilon_start": 0.9,
+    "epsilon_end": 0.05,
+    "buffer_size": 5000,
+    "batch_size": 64,
+    "target_update": 50
+  },
+  "env_config": {
+    "n_stations": 17,
+    "n_demand_pts": 185,
+    "total_supply_capacity": 220,
+    "initial_depot": 110,
+    "state_dim": 36,
+    "n_actions": 18
+  },
+  "station_info": [
+    {
+      "lon": 121.44240506329113,
+      "lat": 31.324050632911394,
+      "type": 2,
+      "name": "综合站",
+      "ndrones": 5,
+      "service_km": 10.0,
+      "max_supply": 10,
+      "emg_km": 15.0
+    },
+    {
+      "lon": 121.4879746835443,
+      "lat": 31.0873417721519,
+      "type": 2,
+      "name": "综合站",
+      "ndrones": 5,
+      "service_km": 10.0,
+      "max_supply": 10,
+      "emg_km": 15.0
+    },
+    {
+      "lon": 121.35126582278481,
+      "lat": 31.19493670886076,
+      "type": 3,
+      "name": "枢纽站",
+      "ndrones": 10,
+      "service_km": 20.0,
+      "max_supply": 20,
+      "emg_km": 28.0
+    },
+    {
+      "lon": 121.15379746835443,
+      "lat": 31.281012658227848,
+      "type": 2,
+      "name": "综合站",
+      "ndrones": 5,
+      "service_km": 10.0,
+      "max_supply": 10,
+      "emg_km": 15.0
+    },
+    {
+      "lon": 121.35126582278481,
+      "lat": 31.324050632911394,
+      "type": 3,
+      "name": "枢纽站",
+      "ndrones": 10,
+      "service_km": 20.0,
+      "max_supply": 20,
+      "emg_km": 28.0
+    },
+    {
+      "lon": 121.1386075949367,
+      "lat": 30.990506329113924,
+      "type": 2,
+      "name": "综合站",
+      "ndrones": 5,
+      "service_km": 10.0,
+      "max_supply": 10,
+      "emg_km": 15.0
+    },
+    {
+      "lon": 121.7006329113924,
+      "lat": 30.958227848101266,
+      "type": 2,
+      "name": "综合站",
+      "ndrones": 5,
+      "service_km": 10.0,
+      "max_supply": 10,
+      "emg_km": 15.0
+    },
+    {
+      "lon": 121.38164556962025,
+      "lat": 31.02278481012658,
+      "type": 3,
+      "name": "枢纽站",
+      "ndrones": 10,
+      "service_km": 20.0,
+      "max_supply": 20,
+      "emg_km": 28.0
+    },
+    {
+      "lon": 121.03227848101265,
+      "lat": 30.968987341772152,
+      "type": 2,
+      "name": "综合站",
+      "ndrones": 5,
+      "service_km": 10.0,
+      "max_supply": 10,
+      "emg_km": 15.0
+    },
+    {
+      "lon": 121.94367088607595,
+      "lat": 30.91518987341772,
+      "type": 2,
+      "name": "综合站",
+      "ndrones": 5,
+      "service_km": 10.0,
+      "max_supply": 10,
+      "emg_km": 15.0
+    },
+    {
+      "lon": 121.29050632911392,
+      "lat": 30.850632911392406,
+      "type": 3,
+      "name": "枢纽站",
+      "ndrones": 10,
+      "service_km": 20.0,
+      "max_supply": 20,
+      "emg_km": 28.0
+    },
+    {
+      "lon": 121.4737,
+      "lat": 31.2304,
+      "type": 2,
+      "name": "综合站",
+      "ndrones": 5,
+      "service_km": 10.0,
+      "max_supply": 10,
+      "emg_km": 15.0
+    },
+    {
+      "lon": 121.5047,
+      "lat": 31.2783,
+      "type": 2,
+      "name": "综合站",
+      "ndrones": 5,
+      "service_km": 10.0,
+      "max_supply": 10,
+      "emg_km": 15.0
+    },
+    {
+      "lon": 121.6105,
+      "lat": 31.1994,
+      "type": 3,
+      "name": "枢纽站",
+      "ndrones": 10,
+      "service_km": 20.0,
+      "max_supply": 20,
+      "emg_km": 28.0
+    },
+    {
+      "lon": 121.1088,
+      "lat": 31.0768,
+      "type": 2,
+      "name": "综合站",
+      "ndrones": 5,
+      "service_km": 10.0,
+      "max_supply": 10,
+      "emg_km": 15.0
+    },
+    {
+      "lon": 121.458,
+      "lat": 30.8419,
+      "type": 2,
+      "name": "综合站",
+      "ndrones": 5,
+      "service_km": 10.0,
+      "max_supply": 10,
+      "emg_km": 15.0
+    },
+    {
+      "lon": 121.9716,
+      "lat": 31.5156,
+      "type": 2,
+      "name": "综合站",
+      "ndrones": 5,
+      "service_km": 10.0,
+      "max_supply": 10,
+      "emg_km": 15.0
+    }
+  ]
+}
